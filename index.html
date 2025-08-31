@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cardápio Bangkok Lanches</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      margin: 0;
+      background: #fdfdfd;
+      color: #333;
+    }
+    header {
+      background: rgb(255, 30, 0);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 26px;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 20px;
+      gap: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .produtos {
+      flex: 2;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .categoria {
+      grid-column: 1 / -1;
+      margin-top: 40px;
+      margin-bottom: 10px;
+      font-size: 22px;
+      font-weight: 700;
+      color: #ff1e00;
+      border-bottom: 2px solid #ff1e00;
+      padding-bottom: 5px;
+    }
+    .produto {
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .produto:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    }
+    .produto h3 {
+      margin: 0 0 8px;
+      color: #222;
+    }
+    .produto p {
+      font-size: 18px;
+      font-weight: bold;
+      color: #28a745;
+      margin: 0;
+    }
+    .produto button {
+      margin-top: 12px;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 8px;
+      background: #28a745;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .produto button:hover {
+      background: #218838;
+    }
+    .carrinho {
+      flex: 1;
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 20px;
+      height: fit-content;
+      min-width: 280px;
+    }
+    .carrinho h3 {
+      margin-top: 0;
+      font-size: 20px;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 10px;
+    }
+    .item-carrinho {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 8px 0;
+      font-size: 14px;
+    }
+    .item-carrinho button {
+      background: none;
+      border: none;
+      color: red;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      outline: none;
+      transition: 0.2s;
+      font-size: 14px;
+    }
+    input:focus, select:focus {
+      border-color: #28a745;
+      box-shadow: 0 0 6px rgba(40,167,69,0.3);
+    }
+    .finalizar {
+      margin-top: 20px;
+      background: #28a745;
+      color: white;
+      padding: 12px;
+      text-align: center;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+    .finalizar:hover {
+      background: #218838;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+      .carrinho {
+        position: relative;
+        top: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🍔 Bangkok Lanches</h1>
+    <p>Monte seu pedido e finalize pelo WhatsApp</p>
+  </header>
+
+  <div class="container">
+    <!-- Lista de Produtos -->
+    <div class="produtos">
+
+      <div class="categoria">Lanches</div>
+      <div class="produto"><h3>X-Bacon</h3><p>R$ 23,00</p><button onclick="adicionarCarrinho('X-Bacon', 23)">Adicionar</button></div>
+      <div class="produto"><h3>X-Burguer I</h3><p>R$ 17,00</p><button onclick="adicionarCarrinho('X-Burguer I', 17)">Adicionar</button></div>
+      <div class="produto"><h3>X-Burguer II</h3><p>R$ 19,00</p><button onclick="adicionarCarrinho('X-Burguer II', 19)">Adicionar</button></div>
+      <div class="produto"><h3>X-Frango</h3><p>R$ 22,00</p><button onclick="adicionarCarrinho('X-Frango', 22)">Adicionar</button></div>
+      <div class="produto"><h3>X-Frango c/ Calabresa</h3><p>R$ 24,00</p><button onclick="adicionarCarrinho('X-Frango c/ Calabresa', 24)">Adicionar</button></div>
+      <div class="produto"><h3>X-Calabresa</h3><p>R$ 23,00</p><button onclick="adicionarCarrinho('X-Calabresa', 23)">Adicionar</button></div>
+      <div class="produto"><h3>X-Coração</h3><p>R$ 24,00</p><button onclick="adicionarCarrinho('X-Coração', 24)">Adicionar</button></div>
+      <div class="produto"><h3>X-Coração c/ Bacon</h3><p>R$ 27,00</p><button onclick="adicionarCarrinho('X-Coração c/ Bacon', 27)">Adicionar</button></div>
+      <div class="produto"><h3>X-Coração c/ Frango</h3><p>R$ 29,00</p><button onclick="adicionarCarrinho('X-Coração c/ Frango', 29)">Adicionar</button></div>
+      <div class="produto"><h3>X-Acebolado</h3><p>R$ 21,00</p><button onclick="adicionarCarrinho('X-Acebolado', 21)">Adicionar</button></div>
+      <div class="produto"><h3>X-Tudo</h3><p>R$ 33,00</p><button onclick="adicionarCarrinho('X-Tudo', 33)">Adicionar</button></div>
+      <div class="produto"><h3>X-Egg</h3><p>R$ 22,00</p><button onclick="adicionarCarrinho('X-Egg', 22)">Adicionar</button></div>
+      <div class="produto"><h3>X-Sem Pão</h3><p>R$ 19,00</p><button onclick="adicionarCarrinho('X-Sem Pão', 19)">Adicionar</button></div>
+      <div class="produto"><h3>X-Salada</h3><p>R$ 20,00</p><button onclick="adicionarCarrinho('X-Salada', 20)">Adicionar</button></div>
+
+      <div class="categoria">Bebidas</div>
+      <div class="produto"><h3>Refrigerante 350ml</h3><p>R$ 5,00</p><button onclick="adicionarCarrinho('Refrigerante 350ml', 5)">Adicionar</button></div>
+      <div class="produto"><h3>Suco Natural 300ml</h3><p>R$ 7,00</p><button onclick="adicionarCarrinho('Suco Natural 300ml', 7)">Adicionar</button></div>
+      <div class="produto"><h3>Água Mineral 500ml</h3><p>R$ 4,00</p><button onclick="adicionarCarrinho('Água Mineral 500ml', 4)">Adicionar</button></div>
+
+      <div class="categoria">Porções</div>
+      <div class="produto"><h3>Porção de Batata Frita</h3><p>R$ 15,00</p><button onclick="adicionarCarrinho('Porção de Batata Frita', 15)">Adicionar</button></div>
+      <div class="produto"><h3>Porção de Calabresa</h3><p>R$ 18,00</p><button onclick="adicionarCarrinho('Porção de Calabresa', 18)">Adicionar</button></div>
+      <div class="produto"><h3>Porção de Frango a Passarinho</h3><p>R$ 20,00</p><button onclick="adicionarCarrinho('Porção de Frango a Passarinho', 20)">Adicionar</button></div>
+
+    </div>
+
+    <!-- Carrinho -->
+    <div class="carrinho">
+      <h3>🛒 Seu Pedido</h3>
+      <div id="listaCarrinho"></div>
+      <hr />
+      <p><strong>Total: R$ <span id="total">0.00</span></strong></p>
+      <hr />
+      <input type="text" id="nomeCliente" placeholder="Seu nome" />
+    <select id="retiradaEntrega">
+      <option value="Entrega">🚚 Entrega</option>
+      <option value="Retirada">🏪 Retirada no local</option>
+    </select>
+      <select id="pagamento">
+        <option value="Dinheiro">💵 Dinheiro</option>
+        <option value="Cartão">💳 Cartão</option>
+        <option value="Pix">⚡ Pix</option>
+      </select>
+      <div class="finalizar" onclick="finalizarPedido()">Finalizar Pedido no WhatsApp</div>
+    </div>
+  </div>
+
+  <script>
+    let carrinho = [];
+    const taxaEntrega = { produto: "Taxa de Entrega", preco: 2.00 };
+
+    const retiradaEntregaSelect = document.getElementById("retiradaEntrega");
+    retiradaEntregaSelect.addEventListener("change", atualizarTaxaEntrega);
+
+    function adicionarCarrinho(produto, preco) {
+      carrinho.push({ produto, preco });
+      atualizarTaxaEntrega(); // Atualiza taxa de entrega conforme seleção
+      atualizarCarrinho();
+    }
+
+    function atualizarTaxaEntrega() {
+      const retiradaEntrega = retiradaEntregaSelect.value;
+      const taxaIndex = carrinho.findIndex(item => item.produto === taxaEntrega.produto);
+
+      if (retiradaEntrega === "Entrega") {
+        // Se não tiver taxa no carrinho, adiciona
+        if (taxaIndex === -1) {
+          carrinho.push(taxaEntrega);
+        }
+      } else {
+        // Se não for entrega e taxa estiver no carrinho, remove
+        if (taxaIndex !== -1) {
+          carrinho.splice(taxaIndex, 1);
+        }
+      }
+      atualizarCarrinho();
+    }
+
+    function atualizarCarrinho() {
+      const lista = document.getElementById("listaCarrinho");
+      lista.innerHTML = "";
+
+      carrinho.forEach((item, index) => {
+        lista.innerHTML += `
+          <div class="item-carrinho">
+            ${item.produto} - R$ ${item.preco.toFixed(2)}
+            ${item.produto !== "Taxa de Entrega" ? `<button onclick="removerItem(${index})" aria-label="Remover ${item.produto}">❌</button>` : ""}
+          </div>`;
+      });
+
+      const total = carrinho.reduce((acc, item) => acc + item.preco, 0);
+      document.getElementById("total").innerText = total.toFixed(2);
+    }
+
+    function removerItem(index) {
+      // Não permite remover a taxa de entrega manualmente
+      if (carrinho[index].produto === "Taxa de Entrega") return;
+
+      carrinho.splice(index, 1);
+      atualizarTaxaEntrega(); // Atualiza taxa caso necessário
+      atualizarCarrinho();
+    }
+
+    function finalizarPedido() {
+      if (carrinho.length === 0) {
+        alert("Seu carrinho está vazio!");
+        return;
+      }
+
+      const nome = document.getElementById("nomeCliente").value.trim();
+      const retiradaEntrega = retiradaEntregaSelect.value;
+      const pagamento = document.getElementById("pagamento").value;
+
+      if (nome === "") {
+        alert("Por favor, informe seu nome.");
+        return;
+      }
+
+      let mensagem = `*Novo Pedido*\n`;
+      mensagem += `👤 Nome: ${nome}\n`;
+      mensagem += `📦 Tipo: ${retiradaEntrega}\n`;
+      mensagem += `💰 Pagamento: ${pagamento}\n\n`;
+      mensagem += `🛒 Itens:\n`;
+
+      carrinho.forEach(item => {
+        mensagem += `- ${item.produto} - R$ ${item.preco.toFixed(2)}\n`;
+      });
+
+      const total = carrinho.reduce((acc, item) => acc + item.preco, 0);
+      mensagem += `\nTotal: R$ ${total.toFixed(2)}`;
+
+      const telefone = "5548991720692"; // WhatsApp do Bangkok Lanches
+      const url = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
+      window.open(url, "_blank");
+    }
+  </script>
+
+</body>
+</html>
