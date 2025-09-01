@@ -2,216 +2,602 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cardápio Bangkok Lanches</title>
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  <title>Cardápio Premium - Bangkok Lanches</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    body {
-      font-family: "Segoe UI", Arial, sans-serif;
-      margin: 0;
-      background: #fdfdfd;
-      color: #333;
+    :root {
+      --primary: #ff1e00;
+      --primary-dark: #d01a00;
+      --secondary: #28a745;
+      --secondary-dark: #218838;
+      --accent: #ffc107;
+      --light: #f8f9fa;
+      --dark: #212529;
+      --gray: #6c757d;
+      --light-gray: #e9ecef;
+      --border-radius: 15px;
+      --box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      --transition: all 0.3s ease;
     }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      color: var(--dark);
+      line-height: 1.6;
+      min-height: 100vh;
+      padding-bottom: 40px;
+      transform: scale(0.95);
+      transform-origin: top center;
+    }
+    
+    /* Header estilizado */
     header {
-      background: rgb(255, 30, 0);
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
       color: white;
       text-align: center;
-      padding: 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      padding: 25px 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      position: relative;
+      overflow: hidden;
     }
+    
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+      opacity: 0.1;
+    }
+    
+    .header-content {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
     header h1 {
       margin: 0;
-      font-size: 26px;
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
     }
+    
+    header p {
+      margin: 10px 0 0;
+      font-size: 1.1rem;
+      font-weight: 300;
+      opacity: 0.9;
+    }
+    
+    .logo {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+      display: inline-block;
+      background: white;
+      color: var(--primary);
+      width: 80px;
+      height: 80px;
+      line-height: 80px;
+      border-radius: 50%;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    
+    /* Container principal */
     .container {
       display: flex;
       flex-wrap: wrap;
-      padding: 20px;
-      gap: 20px;
-      max-width: 1200px;
-      margin: auto;
+      padding: 30px 20px;
+      gap: 30px;
+      max-width: 1300px;
+      margin: 0 auto;
     }
+    
+    /* Seção de produtos */
     .produtos {
       flex: 2;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 25px;
+      min-width: 0;
     }
+    
     .categoria {
       grid-column: 1 / -1;
-      margin-top: 40px;
-      margin-bottom: 10px;
-      font-size: 22px;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      font-size: 1.8rem;
       font-weight: 700;
-      color: #ff1e00;
-      border-bottom: 2px solid #ff1e00;
-      padding-bottom: 5px;
+      color: var(--primary);
+      border-bottom: 3px solid var(--primary);
+      padding-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
+    
+    .categoria:first-child {
+      margin-top: 0;
+    }
+    
+    .categoria i {
+      font-size: 1.4rem;
+    }
+    
     .produto {
       background: white;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 25px 20px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
       text-align: center;
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
     }
+    
+    .produto::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    
     .produto:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+      transform: translateY(-8px);
+      box-shadow: 0 15px 25px rgba(0,0,0,0.12);
     }
+    
+    .produto:hover::after {
+      transform: scaleX(1);
+    }
+    
     .produto h3 {
-      margin: 0 0 8px;
-      color: #222;
+      margin: 0 0 12px;
+      color: var(--dark);
+      font-size: 1.3rem;
+      font-weight: 600;
     }
+    
     .produto p {
-      font-size: 18px;
-      font-weight: bold;
-      color: #28a745;
-      margin: 0;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--secondary);
+      margin: 0 0 20px;
     }
+    
     .produto button {
-      margin-top: 12px;
-      padding: 10px 15px;
+      margin-top: auto;
+      padding: 12px 20px;
       border: none;
-      border-radius: 8px;
-      background: #28a745;
+      border-radius: 50px;
+      background: var(--secondary);
       color: white;
-      font-weight: bold;
+      font-weight: 600;
       cursor: pointer;
-      transition: 0.3s;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
     }
+    
     .produto button:hover {
-      background: #218838;
+      background: var(--secondary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
     }
+    
+    /* Carrinho de compras */
     .carrinho {
       flex: 1;
       background: white;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 25px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
       position: sticky;
-      top: 20px;
+      top: 30px;
       height: fit-content;
-      min-width: 280px;
+      min-width: 300px;
     }
+    
     .carrinho h3 {
       margin-top: 0;
-      font-size: 20px;
-      border-bottom: 2px solid #eee;
-      padding-bottom: 10px;
+      font-size: 1.5rem;
+      border-bottom: 2px solid var(--light-gray);
+      padding-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--dark);
     }
+    
+    #listaCarrinho {
+      max-height: 300px;
+      overflow-y: auto;
+      margin: 15px 0;
+      padding-right: 5px;
+    }
+    
+    #listaCarrinho::-webkit-scrollbar {
+      width: 6px;
+    }
+    
+    #listaCarrinho::-webkit-scrollbar-track {
+      background: var(--light-gray);
+      border-radius: 10px;
+    }
+    
+    #listaCarrinho::-webkit-scrollbar-thumb {
+      background: var(--gray);
+      border-radius: 10px;
+    }
+    
     .item-carrinho {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin: 8px 0;
-      font-size: 14px;
+      margin: 12px 0;
+      font-size: 1rem;
+      padding: 8px 12px;
+      border-radius: 8px;
+      background: var(--light);
+      transition: var(--transition);
     }
+    
+    .item-carrinho:hover {
+      background: var(--light-gray);
+    }
+    
     .item-carrinho button {
       background: none;
       border: none;
-      color: red;
+      color: var(--primary);
       cursor: pointer;
-      font-size: 16px;
+      font-size: 1.1rem;
+      transition: var(--transition);
+      padding: 5px;
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
+    
+    .item-carrinho button:hover {
+      background: rgba(255, 30, 0, 0.1);
+      transform: scale(1.1);
+    }
+    
+    .carrinho-total {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin: 20px 0;
+      padding-top: 15px;
+      border-top: 2px solid var(--light-gray);
+    }
+    
+    .carrinho-total span {
+      color: var(--primary);
+      font-size: 1.5rem;
+    }
+    
     input, select {
       width: 100%;
-      padding: 10px;
-      margin-top: 10px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
+      padding: 14px 16px;
+      margin-top: 12px;
+      border-radius: 10px;
+      border: 2px solid var(--light-gray);
       outline: none;
-      transition: 0.2s;
-      font-size: 14px;
+      transition: var(--transition);
+      font-size: 1rem;
+      background: white;
     }
+    
     input:focus, select:focus {
-      border-color: #28a745;
-      box-shadow: 0 0 6px rgba(40,167,69,0.3);
+      border-color: var(--secondary);
+      box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.2);
     }
+    
     .finalizar {
-      margin-top: 20px;
-      background: #28a745;
+      margin-top: 25px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
       color: white;
-      padding: 12px;
+      padding: 16px;
       text-align: center;
-      border-radius: 8px;
+      border-radius: 50px;
       cursor: pointer;
-      font-weight: bold;
-      font-size: 16px;
-      transition: 0.3s;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: var(--transition);
+      box-shadow: 0 5px 15px rgba(255, 30, 0, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
     }
+    
     .finalizar:hover {
-      background: #218838;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(255, 30, 0, 0.4);
     }
-
-    @media (max-width: 768px) {
+    
+    /* Responsividade */
+    @media (max-width: 992px) {
       .container {
         flex-direction: column;
       }
+      
       .carrinho {
         position: relative;
         top: auto;
+        margin-top: 20px;
       }
+      
+      .produtos {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      }
+    }
+    
+    @media (max-width: 576px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      
+      .produtos {
+        grid-template-columns: 1fr;
+      }
+      
+      .categoria {
+        font-size: 1.5rem;
+      }
+    }
+    
+    /* Animações */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .produto {
+      animation: fadeIn 0.5s ease forwards;
+    }
+    
+    /* Efeito de destaque para itens novos no carrinho */
+    @keyframes addedItem {
+      0% { background-color: rgba(40, 167, 69, 0.1); }
+      100% { background-color: var(--light); }
+    }
+    
+    .item-added {
+      animation: addedItem 1s ease;
+    }
+    
+    /* Badge para itens populares */
+    .popular {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: var(--accent);
+      color: var(--dark);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 5px 10px;
+      border-radius: 20px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    }
+    
+    /* Footer e direitos autorais */
+    .copyright {
+      text-align: center;
+      margin-top: 50px;
+      padding: 20px;
+      color: var(--gray);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--light-gray);
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .copyright a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    .copyright a:hover {
+      color: var(--primary-dark);
+      text-decoration: underline;
+    }
+    
+    .disclaimer {
+      font-size: 0.8rem;
+      margin-top: 10px;
+      color: var(--gray);
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>🍔 Bangkok Lanches</h1>
-    <p>Monte seu pedido e finalize pelo WhatsApp</p>
+    <div class="header-content">
+      <div class="logo">🍔</div>
+      <h1>Bangkok Lanches</h1>
+      <p>Monte seu pedido e finalize pelo WhatsApp</p>
+    </div>
   </header>
 
   <div class="container">
     <!-- Lista de Produtos -->
     <div class="produtos">
 
-      <div class="categoria">Lanches</div>
-      <div class="produto"><h3>X-Bacon</h3><p>R$ 23,00</p><button onclick="adicionarCarrinho('X-Bacon', 23)">Adicionar</button></div>
-      <div class="produto"><h3>X-Burguer I</h3><p>R$ 17,00</p><button onclick="adicionarCarrinho('X-Burguer I', 17)">Adicionar</button></div>
-      <div class="produto"><h3>X-Burguer II</h3><p>R$ 19,00</p><button onclick="adicionarCarrinho('X-Burguer II', 19)">Adicionar</button></div>
-      <div class="produto"><h3>X-Frango</h3><p>R$ 22,00</p><button onclick="adicionarCarrinho('X-Frango', 22)">Adicionar</button></div>
-      <div class="produto"><h3>X-Frango c/ Calabresa</h3><p>R$ 24,00</p><button onclick="adicionarCarrinho('X-Frango c/ Calabresa', 24)">Adicionar</button></div>
-      <div class="produto"><h3>X-Calabresa</h3><p>R$ 23,00</p><button onclick="adicionarCarrinho('X-Calabresa', 23)">Adicionar</button></div>
-      <div class="produto"><h3>X-Coração</h3><p>R$ 24,00</p><button onclick="adicionarCarrinho('X-Coração', 24)">Adicionar</button></div>
-      <div class="produto"><h3>X-Coração c/ Bacon</h3><p>R$ 27,00</p><button onclick="adicionarCarrinho('X-Coração c/ Bacon', 27)">Adicionar</button></div>
-      <div class="produto"><h3>X-Coração c/ Frango</h3><p>R$ 29,00</p><button onclick="adicionarCarrinho('X-Coração c/ Frango', 29)">Adicionar</button></div>
-      <div class="produto"><h3>X-Acebolado</h3><p>R$ 21,00</p><button onclick="adicionarCarrinho('X-Acebolado', 21)">Adicionar</button></div>
-      <div class="produto"><h3>X-Tudo</h3><p>R$ 33,00</p><button onclick="adicionarCarrinho('X-Tudo', 33)">Adicionar</button></div>
-      <div class="produto"><h3>X-Egg</h3><p>R$ 22,00</p><button onclick="adicionarCarrinho('X-Egg', 22)">Adicionar</button></div>
-      <div class="produto"><h3>X-Sem Pão</h3><p>R$ 19,00</p><button onclick="adicionarCarrinho('X-Sem Pão', 19)">Adicionar</button></div>
-      <div class="produto"><h3>X-Salada</h3><p>R$ 20,00</p><button onclick="adicionarCarrinho('X-Salada', 20)">Adicionar</button></div>
+      <div class="categoria"><i class="fas fa-hamburger"></i> Lanches</div>
+      <div class="produto">
+        <span class="popular">Recomendado</span>
+        <h3>X-Salada</h3>
+        <p>R$ 20,00</p>
+        <button onclick="adicionarCarrinho('X-Salada', 20)"><i class="fas fa-plus"></i> Adicionar</button>
+      </div>
+      <div class="produto">
+        <!--<span class="popular">Mais Pedido</span>-->
+        <h3>X-Bacon</h3>
+        <p>R$ 23,00</p>
+        <button onclick="adicionarCarrinho('X-Bacon', 23)"><i class="fas fa-plus"></i> Adicionar</button>
+      </div>
+      <div class="produto">
+        <h3>X-Burguer I</h3>
+        <p>R$ 17,00</p>
+        <button onclick="adicionarCarrinho('X-Burguer I', 17)"><i class="fas fa-plus"></i> Adicionar</button>
+      </div>
+      <div class="produto">
+        <h3>X-Burguer II</h3>
+        <p>R$ 19,00</p>
+        <button onclick="adicionarCarrinho('X-Burguer II', 19)"><i class="fas fa-plus"></i> Adicionar</button>
+      </div>
+      <div class="produto">
+        <!-- <span class="popular">Recomendado</span> -->
+        <h3>X-Frango</h3>
+        <p>R$ 22,00</p>
+        <button onclick="adicionarCarrinho('X-Frango', 22)"><i class="fas fa-plus"></i> Adicionar</button>
+      </div>
+      <div class="produto">
+        <h3>X-Frango c/ Calabresa</h3>
+        <p>R$ 24,00</p>
+        <button onclick="adicionarCarrinho('X-Frango c/ Calabresa', 24)"><i class="fas fa-plus"></i> Adicionar</button>
+      </div>
+      <div class="produto">
+        <h3>X-Calabresa</h3>
+        <p>R$ 23,00</p>
+        <button onclick="adicionarCarrinho('X-Calabresa', 23)"><i class="fas fa-plus"></i> Adicionar</button>
+      </div>
+      <div class="produto">
+        <h3>X-Coração</h3>
+        <p>R$ 24,00</p>
+        <button onclick="adicionarCarrinho('X-Coração', 24)"><i class="fas fa-plus"></i> Adicionar</button>
+      </div>
+      <div class="produto">
+        <h3>X-Coração c/ Bacon</h3>
+        <p>R$ 27,00</p>
+        <button onclick="adicionarCarrinho('X-Coração c/ Bacon', 27)"><i class="fas fa-plus"></i> Adicionar</button>
+      </div>
+      <div class="produto">
+        <h3>X-Coração c/ Frango</h3>
+        <p>R$ 29,00</p>
+        <button onclick="adicionarCarrinho('X-Coração c/ Frango', 29)"><i class="fas fa-plus"></i> Adicionar</button>
+      </div>
+      <div class="produto">
+        <h3>X-Acebolado</h3>
+        <p>R$ 21,00</p>
+        <button onclick="adicionarCarrinho('X-Acebolado', 21)"><i class="fas fa-plus"></i> Adicionar</button>
+      </div>
+      <div class="produto">
+        <!--<span class="popular">Destaque</span>-->
+        <h3>X-Tudo</h3>
+        <p>R$ 33,00</p>
+        <button onclick="adicionarCarrinho('X-Tudo', 33)"><i class="fas fa-plus"></i> Adicionar</button>
+      </div>
+      <div class="produto">
+        <h3>X-Egg</h3>
+        <p>R$ 22,00</p>
+        <button onclick="adicionarCarrinho('X-Egg', 22)"><i class="fas fa-plus"></i> Adicionar</button>
+      </div>
+      <div class="produto">
+        <h3>X-Sem Pão</h3>
+        <p>R$ 19,00</p>
+        <button onclick="adicionarCarrinho('X-Sem Pão', 19)"><i class="fas fa-plus"></i> Adicionar</button>
+      </div>
 
-      <div class="categoria">Bebidas</div>
-      <div class="produto"><h3>Refrigerante 350ml</h3><p>R$ 7,00</p><button onclick="adicionarCarrinho('Refrigerante 350ml', 5)">Adicionar</button></div>
-      <div class="produto"><h3>Suco Natural 300ml</h3><p>R$ 7,00</p><button onclick="adicionarCarrinho('Suco Natural 300ml', 7)">Adicionar</button></div>
-      <div class="produto"><h3>Água Mineral 500ml</h3><p>R$ 4,00</p><button onclick="adicionarCarrinho('Água Mineral 500ml', 4)">Adicionar</button></div>
+      <div class="categoria"><i class="fas fa-glass-cheers"></i> Bebidas</div>
+      <div class="produto">
+        <h3>Refrigerante 350ml</h3>
+        <p>R$ 5,00</p>
+        <button onclick="adicionarCarrinho('Refrigerante 350ml', 5)"><i class="fas fa-plus"></i> Adicionar</button>
+      </div>
+      <div class="produto">
+        <h3>Suco Natural 300ml</h3>
+        <p>R$ 7,00</p>
+        <button onclick="adicionarCarrinho('Suco Natural 300ml', 7)"><i class="fas fa-plus"></i> Adicionar</button>
+      </div>
+      <div class="produto">
+        <h3>Água Mineral 500ml</h3>
+        <p>R$ 4,00</p>
+        <button onclick="adicionarCarrinho('Água Mineral 500ml', 4)"><i class="fas fa-plus"></i> Adicionar</button>
+      </div>
 
-      <div class="categoria">Porções</div>
-      <div class="produto"><h3>Porção de Batata Frita</h3><p>R$ 15,00</p><button onclick="adicionarCarrinho('Porção de Batata Frita', 15)">Adicionar</button></div>
-      <div class="produto"><h3>Porção de Calabresa</h3><p>R$ 18,00</p><button onclick="adicionarCarrinho('Porção de Calabresa', 18)">Adicionar</button></div>
-      <div class="produto"><h3>Porção de Frango a Passarinho</h3><p>R$ 20,00</p><button onclick="adicionarCarrinho('Porção de Frango a Passarinho', 20)">Adicionar</button></div>
+      <div class="categoria"><i class="fas fa-drumstick-bite"></i> Porções</div>
+      <div class="produto">
+        <h3>Porção de Batata Frita</h3>
+        <p>R$ 15,00</p>
+        <button onclick="adicionarCarrinho('Porção de Batata Frita', 15)"><i class="fas fa-plus"></i> Adicionar</button>
+      </div>
+      <div class="produto">
+        <h3>Porção de Calabresa</h3>
+        <p>R$ 18,00</p>
+        <button onclick="adicionarCarrinho('Porção de Calabresa', 18)"><i class="fas fa-plus"></i> Adicionar</button>
+      </div>
+      <div class="produto">
+        <span class="popular">Especial</span>
+        <h3>Porção de Frango a Passarinho</h3>
+        <p>R$ 20,00</p>
+        <button onclick="adicionarCarrinho('Porção de Frango a Passarinho', 20)"><i class="fas fa-plus"></i> Adicionar</button>
+      </div>
 
     </div>
 
     <!-- Carrinho -->
     <div class="carrinho">
-      <h3>🛒 Seu Pedido</h3>
+      <h3><i class="fas fa-shopping-cart"></i> Seu Pedido</h3>
       <div id="listaCarrinho"></div>
-      <hr />
-      <p><strong>Total: R$ <span id="total">0.00</span></strong></p>
-      <hr />
-      <input type="text" id="nomeCliente" placeholder="Seu nome" />
-    <select id="retiradaEntrega">
-      <option value="Entrega">🚚 Entrega</option>
-      <option value="Retirada">🏪 Retirada no local</option>
-    </select>
+      
+      <div class="carrinho-total">
+        Total: R$ <span id="total">0.00</span>
+      </div>
+      
+      <input type="text" id="nomeCliente" placeholder="Seu nome completo" />
+      <select id="retiradaEntrega">
+        <option value="Entrega">🚚 Entrega (Taxa: R$ 2,00)</option>
+        <option value="Retirada">🏪 Retirada no local</option>
+      </select>
       <select id="pagamento">
         <option value="Dinheiro">💵 Dinheiro</option>
-        <option value="Cartão">💳 Cartão</option>
-        <option value="Pix">⚡ Pix</option>
+        <option value="Cartão">💳 Cartão (débito/crédito)</option>
+        <option value="Pix">⚡ Pix (5% de desconto)</option>
       </select>
-      <div class="finalizar" onclick="finalizarPedido()">Finalizar Pedido no WhatsApp</div>
+      
+      <div class="finalizar" onclick="finalizarPedido()">
+        <i class="fab fa-whatsapp"></i> Finalizar Pedido no WhatsApp
+      </div>
     </div>
+  </div>
+
+  <div class="copyright">
+    <p>Bangkok Lanches &copy; 2025 - Todos os direitos reservados</p>
+    <p class="disclaimer">Desenvolvido com ❤️ para oferecer a melhor experiência em delivery</p>
+    <p class="disclaimer">Telefone: (48) 99172-0692 | Endereço: Rua Vereador Euclides Odorico Do Canto, 741 - Morro dos Conventos</p>
   </div>
 
   <script>
@@ -223,8 +609,19 @@
 
     function adicionarCarrinho(produto, preco) {
       carrinho.push({ produto, preco });
-      atualizarTaxaEntrega(); // Atualiza taxa de entrega conforme seleção
+      atualizarTaxaEntrega();
       atualizarCarrinho();
+      
+      // Feedback visual ao adicionar item
+      const button = event.currentTarget;
+      const originalText = button.innerHTML;
+      button.innerHTML = '<i class="fas fa-check"></i> Adicionado';
+      button.style.background = 'var(--secondary-dark)';
+      
+      setTimeout(() => {
+        button.innerHTML = originalText;
+        button.style.background = '';
+      }, 1500);
     }
 
     function atualizarTaxaEntrega() {
@@ -232,12 +629,10 @@
       const taxaIndex = carrinho.findIndex(item => item.produto === taxaEntrega.produto);
 
       if (retiradaEntrega === "Entrega") {
-        // Se não tiver taxa no carrinho, adiciona
         if (taxaIndex === -1) {
           carrinho.push(taxaEntrega);
         }
       } else {
-        // Se não for entrega e taxa estiver no carrinho, remove
         if (taxaIndex !== -1) {
           carrinho.splice(taxaIndex, 1);
         }
@@ -249,30 +644,43 @@
       const lista = document.getElementById("listaCarrinho");
       lista.innerHTML = "";
 
-      carrinho.forEach((item, index) => {
-        lista.innerHTML += `
-          <div class="item-carrinho">
+      if (carrinho.length === 0) {
+        lista.innerHTML = '<div style="text-align: center; padding: 20px; color: var(--gray);"><i class="fas fa-shopping-cart" style="font-size: 2rem; margin-bottom: 10px;"></i><p>Seu carrinho está vazio</p></div>';
+      } else {
+        carrinho.forEach((item, index) => {
+          const itemElement = document.createElement('div');
+          itemElement.className = 'item-carrinho';
+          itemElement.innerHTML = `
             ${item.produto} - R$ ${item.preco.toFixed(2)}
-            ${item.produto !== "Taxa de Entrega" ? `<button onclick="removerItem(${index})" aria-label="Remover ${item.produto}">❌</button>` : ""}
-          </div>`;
-      });
+            ${item.produto !== "Taxa de Entrega" ? `<button onclick="removerItem(${index})" aria-label="Remover ${item.produto}"><i class="fas fa-trash"></i></button>` : ''}
+          `;
+          lista.appendChild(itemElement);
+        });
+      }
 
       const total = carrinho.reduce((acc, item) => acc + item.preco, 0);
       document.getElementById("total").innerText = total.toFixed(2);
     }
 
     function removerItem(index) {
-      // Não permite remover a taxa de entrega manualmente
       if (carrinho[index].produto === "Taxa de Entrega") return;
 
       carrinho.splice(index, 1);
-      atualizarTaxaEntrega(); // Atualiza taxa caso necessário
+      atualizarTaxaEntrega();
       atualizarCarrinho();
+    }
+
+    function aplicarDescontoPix(total) {
+      const pagamento = document.getElementById("pagamento").value;
+      if (pagamento === "Pix") {
+        return total * 0.95; // 5% de desconto
+      }
+      return total;
     }
 
     function finalizarPedido() {
       if (carrinho.length === 0) {
-        alert("Seu carrinho está vazio!");
+        alert("Seu carrinho está vazio! Adicione algum item antes de finalizar.");
         return;
       }
 
@@ -281,29 +689,41 @@
       const pagamento = document.getElementById("pagamento").value;
 
       if (nome === "") {
-        alert("Por favor, informe seu nome.");
+        alert("Por favor, informe seu nome para continuar.");
+        document.getElementById("nomeCliente").focus();
         return;
       }
 
-      let mensagem = `*Novo Pedido*\n`;
-      mensagem += `👤 Nome: ${nome}\n`;
-      mensagem += `📦 Tipo: ${retiradaEntrega}\n`;
-      mensagem += `💰 Pagamento: ${pagamento}\n\n`;
-      mensagem += `🛒 Itens:\n`;
+      let mensagem = `*🍔 BANGKOK LANCHES - NOVO PEDIDO*%0A%0A`;
+      mensagem += `*👤 Cliente:* ${nome}%0A`;
+      mensagem += `*📦 Tipo de entrega:* ${retiradaEntrega}%0A`;
+      mensagem += `*💰 Forma de pagamento:* ${pagamento}%0A%0A`;
+      mensagem += `*🛒 ITENS DO PEDIDO:*%0A%0A`;
 
       carrinho.forEach(item => {
-        mensagem += `- ${item.produto} - R$ ${item.preco.toFixed(2)}\n`;
+        mensagem += `▪️ ${item.produto} - R$ ${item.preco.toFixed(2)}%0A`;
       });
 
-      const total = carrinho.reduce((acc, item) => acc + item.preco, 0);
-      mensagem += `\nTotal: R$ ${total.toFixed(2)}`;
+      let total = carrinho.reduce((acc, item) => acc + item.preco, 0);
+      
+      // Aplicar desconto se for Pix
+      if (pagamento === "Pix") {
+        const totalSemDesconto = total;
+        total = aplicarDescontoPix(total);
+        mensagem += `%0A*💎 Desconto Pix (5%):* -R$ ${(totalSemDesconto - total).toFixed(2)}%0A`;
+      }
+      
+      mensagem += `%0A*✅ TOTAL: R$ ${total.toFixed(2)}*%0A%0A`;
+      mensagem += `*📋 Observações:* ...`;
 
-      const telefone = "5548991720692"; // WhatsApp do Bangkok Lanches
-      const url = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
+      const telefone = "5548991720692";
+      const url = `https://wa.me/${telefone}?text=${mensagem}`;
       window.open(url, "_blank");
     }
+
+    // Inicializar o carrinho
+    atualizarCarrinho();
   </script>
 
 </body>
 </html>
-
