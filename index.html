@@ -2,13 +2,13 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cardápio - Bangkok Lanches</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-      --primary: #ff1e00;
-      --primary-dark: #d01a00;
+      --primary: #ca8e0d;
+      --primary-dark: #e00000;
       --secondary: #28a745;
       --secondary-dark: #218838;
       --accent: #ffc107;
@@ -110,7 +110,7 @@
     .produtos {
       flex: 2;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       gap: 25px;
       min-width: 0;
     }
@@ -446,8 +446,10 @@
   <header>
     <div class="header-content">
       <div class="logo">🍔</div>
-      <h1>Bangkok Lanches</h1>
-      <p>Monte seu pedido e finalize pelo WhatsApp</p>
+      <h1>XIS DO BANGKOK</h1>
+      <p2>Monte seu pedido e finalize adicionando ao carrinho!</p2>
+      <!--<p1>Você não irá se arrepender</p1>-->
+      <h6>O carrinho de suas escolhas estão no final da página.</h6>
     </div>
   </header>
 
@@ -455,86 +457,112 @@
     <!-- Lista de Produtos -->
     <div class="produtos">
 
-      <div class="categoria"><i class="fas fa-hamburger"></i> Lanches</div>
-      <div class="produto">
-        <span class="popular">Recomendado</span>
-        <h3>X-Salada</h3>
-        <p>R$ 20,00</p>
-        <button onclick="adicionarCarrinho('X-Salada', 20)"><i class="fas fa-plus"></i> Adicionar</button>
-      </div>
-      <div class="produto">
-        <!--<span class="popular">Mais Pedido</span>-->
-        <h3>X-Bacon</h3>
-        <p>R$ 23,00</p>
-        <button onclick="adicionarCarrinho('X-Bacon', 23)"><i class="fas fa-plus"></i> Adicionar</button>
-      </div>
-      <div class="produto">
-        <h3>X-Burguer I</h3>
-        <p>R$ 17,00</p>
-        <button onclick="adicionarCarrinho('X-Burguer I', 17)"><i class="fas fa-plus"></i> Adicionar</button>
-      </div>
-      <div class="produto">
-        <h3>X-Burguer II</h3>
-        <p>R$ 19,00</p>
-        <button onclick="adicionarCarrinho('X-Burguer II', 19)"><i class="fas fa-plus"></i> Adicionar</button>
-      </div>
-      <div class="produto">
-        <!-- <span class="popular">Recomendado</span> -->
-        <h3>X-Frango</h3>
-        <p>R$ 22,00</p>
-        <button onclick="adicionarCarrinho('X-Frango', 22)"><i class="fas fa-plus"></i> Adicionar</button>
-      </div>
-      <div class="produto">
-        <h3>X-Frango c/ Calabresa</h3>
-        <p>R$ 24,00</p>
-        <button onclick="adicionarCarrinho('X-Frango c/ Calabresa', 24)"><i class="fas fa-plus"></i> Adicionar</button>
-      </div>
-      <div class="produto">
-        <h3>X-Calabresa</h3>
-        <p>R$ 23,00</p>
-        <button onclick="adicionarCarrinho('X-Calabresa', 23)"><i class="fas fa-plus"></i> Adicionar</button>
-      </div>
-      <div class="produto">
-        <h3>X-Coração</h3>
-        <p>R$ 24,00</p>
-        <button onclick="adicionarCarrinho('X-Coração', 24)"><i class="fas fa-plus"></i> Adicionar</button>
-      </div>
-      <div class="produto">
-        <h3>X-Coração c/ Bacon</h3>
-        <p>R$ 27,00</p>
-        <button onclick="adicionarCarrinho('X-Coração c/ Bacon', 27)"><i class="fas fa-plus"></i> Adicionar</button>
-      </div>
-      <div class="produto">
-        <h3>X-Coração c/ Frango</h3>
-        <p>R$ 29,00</p>
-        <button onclick="adicionarCarrinho('X-Coração c/ Frango', 29)"><i class="fas fa-plus"></i> Adicionar</button>
-      </div>
-      <div class="produto">
-        <h3>X-Acebolado</h3>
-        <p>R$ 21,00</p>
-        <button onclick="adicionarCarrinho('X-Acebolado', 21)"><i class="fas fa-plus"></i> Adicionar</button>
-      </div>
-      <div class="produto">
-        <!--<span class="popular">Destaque</span>-->
-        <h3>X-Tudo</h3>
-        <p>R$ 33,00</p>
-        <button onclick="adicionarCarrinho('X-Tudo', 33)"><i class="fas fa-plus"></i> Adicionar</button>
-      </div>
-      <div class="produto">
-        <h3>X-Egg</h3>
-        <p>R$ 22,00</p>
-        <button onclick="adicionarCarrinho('X-Egg', 22)"><i class="fas fa-plus"></i> Adicionar</button>
-      </div>
-      <div class="produto">
-        <h3>X-Sem Pão</h3>
-        <p>R$ 19,00</p>
-        <button onclick="adicionarCarrinho('X-Sem Pão', 19)"><i class="fas fa-plus"></i> Adicionar</button>
-      </div>
+<div class="categoria"><i class="fas fa-hamburger"></i> Lanches</div>
+
+<div class="produto">
+  <!--<span class="popular">Recomendado</span>-->
+  <h3>X-Salada</h3>
+  <p2>Pão macio, carne de hambúrguer suculento, queijo, alface, tomate e maionese especial.</p>
+  <p>R$ 20,00</p>
+  <button onclick="adicionarCarrinho('X-Salada', 20)"><i class="fas fa-plus"></i> Adicionar</button>
+</div>
+
+<div class="produto">
+  <h3>X-Bacon</h3>
+  <p2>Hambúrguer artesanal, queijo derretido, crocantes fatias de bacon e molho da casa.</p>
+  <p>R$ 25,00</p>
+  <button onclick="adicionarCarrinho('X-Bacon', 23)"><i class="fas fa-plus"></i> Adicionar</button>
+</div>
+
+<div class="produto">
+  <h3>X-Burguer I</h3>
+  <p2>Clássico e saboroso: pão, hambúrguer suculento, queijo e maionese caseira.</p>
+  <p>R$ 19,00</p>
+  <button onclick="adicionarCarrinho('X-Burguer I', 17)"><i class="fas fa-plus"></i> Adicionar</button>
+</div>
+
+<div class="produto">
+  <h3>X-Burguer II</h3>
+  <p2>Uma versão mais recheada do X-Burguer I, com double hambúrguer, queijo, alface e tomate.</p>
+  <p>R$ 21,00</p>
+  <button onclick="adicionarCarrinho('X-Burguer II', 19)"><i class="fas fa-plus"></i> Adicionar</button>
+</div>
+
+<div class="produto">
+  <h3>X-Frango</h3>
+  <p2>Pão fresquinho, filé de frango grelhado, queijo, alface, tomate e maionese temperada.</p>
+  <p>R$ 24,00</p>
+  <button onclick="adicionarCarrinho('X-Frango', 22)"><i class="fas fa-plus"></i> Adicionar</button>
+</div>
+
+<div class="produto">
+  <h3>X-Frango c/ Calabresa</h3>
+  <p2>Combinação deliciosa de frango grelhado com calabresa fatiada, queijo e maionese.</p>
+  <p>R$ 26,00</p>
+  <button onclick="adicionarCarrinho('X-Frango c/ Calabresa', 24)"><i class="fas fa-plus"></i> Adicionar</button>
+</div>
+
+<div class="produto">
+  <h3>X-Calabresa</h3>
+  <p2>Pão artesanal, linguiça calabresa acebolada, queijo derretido e maionese.</p>
+  <p>R$ 25,00</p>
+  <button onclick="adicionarCarrinho('X-Calabresa', 23)"><i class="fas fa-plus"></i> Adicionar</button>
+</div>
+
+<div class="produto">
+  <h3>X-Coração</h3>
+  <p2>Clássico do sul: pão, queijo e espetinho de coração bem temperado.</p>
+  <p>R$ 26,00</p>
+  <button onclick="adicionarCarrinho('X-Coração', 24)"><i class="fas fa-plus"></i> Adicionar</button>
+</div>
+
+<div class="produto">
+  <h3>X-Coração c/ Bacon</h3>
+  <p2>Espetinho de coração, bacon crocante, queijo e maionese especial no pão macio.</p>
+  <p>R$ 29,00</p>
+  <button onclick="adicionarCarrinho('X-Coração c/ Bacon', 27)"><i class="fas fa-plus"></i> Adicionar</button>
+</div>
+
+<div class="produto">
+  <h3>X-Coração c/ Frango</h3>
+  <p2>A mistura perfeita: coração bem temperado com filé de frango grelhado e queijo.</p>
+  <p>R$ 31,00</p>
+  <button onclick="adicionarCarrinho('X-Coração c/ Frango', 29)"><i class="fas fa-plus"></i> Adicionar</button>
+</div>
+
+<div class="produto">
+  <h3>X-Acebolado</h3>
+  <p2>Hambúrguer suculento coberto com cebolas caramelizadas e queijo derretido.</p>
+  <p>R$ 23,00</p>
+  <button onclick="adicionarCarrinho('X-Acebolado', 21)"><i class="fas fa-plus"></i> Adicionar</button>
+</div>
+
+<div class="produto">
+  <h3>X-Tudo</h3>
+  <p2>O mais completo: hambúrguer, bacon, ovo, calabresa, frango, queijo, salada e molho especial.</p>
+  <p>R$ 35,00</p>
+  <button onclick="adicionarCarrinho('X-Tudo', 33)"><i class="fas fa-plus"></i> Adicionar</button>
+</div>
+
+<div class="produto">
+  <h3>X-Egg</h3>
+  <p2>Clássico lanche com hambúrguer, queijo, salada e um ovo frito no ponto certo.</p>
+  <p>R$ 24,00</p>
+  <button onclick="adicionarCarrinho('X-Egg', 22)"><i class="fas fa-plus"></i> Adicionar</button>
+</div>
+
+<div class="produto">
+  <h3>X-Sem Pão</h3>
+  <p2>Versão leve sem pão, com hambúrguer artesanal, queijo, salada fresca e molho da casa.</p>
+  <p>R$ 21,00</p>
+  <button onclick="adicionarCarrinho('X-Sem Pão', 19)"><i class="fas fa-plus"></i> Adicionar</button>
+</div>
+
 
       <div class="categoria"><i class="fas fa-glass-cheers"></i> Bebidas</div>
       <div class="produto">
         <h3>Refrigerante 350ml</h3>
-        <p>R$ 5,00</p>
+        <p>R$ 7,00</p>
         <button onclick="adicionarCarrinho('Refrigerante 350ml', 5)"><i class="fas fa-plus"></i> Adicionar</button>
       </div>
       <div class="produto">
@@ -544,28 +572,17 @@
       </div>
       <div class="produto">
         <h3>Água Mineral 500ml</h3>
-        <p>R$ 4,00</p>
+        <p>R$ 5,00</p>
         <button onclick="adicionarCarrinho('Água Mineral 500ml', 4)"><i class="fas fa-plus"></i> Adicionar</button>
       </div>
 
       <div class="categoria"><i class="fas fa-drumstick-bite"></i> Porções</div>
       <div class="produto">
-        <h3>Porção de Batata Frita</h3>
-        <p>R$ 15,00</p>
+        <h3>Porção de Batata Frita 400g</h3>
+        <p>R$ 25,00</p>
         <button onclick="adicionarCarrinho('Porção de Batata Frita', 15)"><i class="fas fa-plus"></i> Adicionar</button>
       </div>
-      <div class="produto">
-        <h3>Porção de Calabresa</h3>
-        <p>R$ 18,00</p>
-        <button onclick="adicionarCarrinho('Porção de Calabresa', 18)"><i class="fas fa-plus"></i> Adicionar</button>
-      </div>
-      <div class="produto">
-        <span class="popular">Especial</span>
-        <h3>Porção de Frango a Passarinho</h3>
-        <p>R$ 20,00</p>
-        <button onclick="adicionarCarrinho('Porção de Frango a Passarinho', 20)"><i class="fas fa-plus"></i> Adicionar</button>
-      </div>
-
+      
     </div>
 
     <!-- Carrinho -->
@@ -585,8 +602,11 @@
       <select id="pagamento">
         <option value="Dinheiro">💵 Dinheiro</option>
         <option value="Cartão">💳 Cartão (débito/crédito)</option>
-        <option value="Pix">⚡ Pix (5% de desconto)</option>
+        <option value="Pix">⚡ Pix </option>
+      <!--<input type="text" id="nomeCliente" placeholder="Seu nome completo" />  -->
       </select>
+
+      <input id="observacao" placeholder="Observações (ex: sem cebola, ponto da carne, troco para R$ 50, etc.)"></>
       
       <div class="finalizar" onclick="finalizarPedido()">
         <i class="fab fa-whatsapp"></i> Finalizar Pedido no WhatsApp
@@ -621,7 +641,7 @@
       setTimeout(() => {
         button.innerHTML = originalText;
         button.style.background = '';
-      }, 1500);
+      }, 1000);
     }
 
     function atualizarTaxaEntrega() {
@@ -640,27 +660,43 @@
       atualizarCarrinho();
     }
 
-    function atualizarCarrinho() {
-      const lista = document.getElementById("listaCarrinho");
-      lista.innerHTML = "";
+function atualizarCarrinho() {
+  const lista = document.getElementById("listaCarrinho");
+  lista.innerHTML = "";
 
-      if (carrinho.length === 0) {
-        lista.innerHTML = '<div style="text-align: center; padding: 20px; color: var(--gray);"><i class="fas fa-shopping-cart" style="font-size: 2rem; margin-bottom: 10px;"></i><p>Seu carrinho está vazio</p></div>';
-      } else {
-        carrinho.forEach((item, index) => {
-          const itemElement = document.createElement('div');
-          itemElement.className = 'item-carrinho';
-          itemElement.innerHTML = `
-            ${item.produto} - R$ ${item.preco.toFixed(2)}
-            ${item.produto !== "Taxa de Entrega" ? `<button onclick="removerItem(${index})" aria-label="Remover ${item.produto}"><i class="fas fa-trash"></i></button>` : ''}
-          `;
-          lista.appendChild(itemElement);
-        });
-      }
+  if (carrinho.length === 0) {
+    lista.innerHTML = '<div style="text-align: center; padding: 20px; color: var(--gray);"><i class="fas fa-shopping-cart" style="font-size: 2rem; margin-bottom: 10px;"></i><p>Seu carrinho está vazio</p></div>';
+    return;
+  }
 
-      const total = carrinho.reduce((acc, item) => acc + item.preco, 0);
-      document.getElementById("total").innerText = total.toFixed(2);
-    }
+  // Separar itens normais da taxa
+  const itensNormais = carrinho.filter(item => item.produto !== "Taxa de Entrega");
+  const itemTaxa = carrinho.find(item => item.produto === "Taxa de Entrega");
+
+  // Adicionar itens normais primeiro
+  itensNormais.forEach((item, index) => {
+    const itemElement = document.createElement('div');
+    itemElement.className = 'item-carrinho';
+    itemElement.innerHTML = `
+      ${item.produto} - R$ ${item.preco.toFixed(2)}
+      <button onclick="removerItem(${index})" aria-label="Remover ${item.produto}"><i class="fas fa-trash"></i></button>
+    `;
+    lista.appendChild(itemElement);
+  });
+
+  // Adicionar taxa de entrega por último
+  if (itemTaxa) {
+    const itemElement = document.createElement('div');
+    itemElement.className = 'item-carrinho';
+    itemElement.innerHTML = `${itemTaxa.produto} - R$ ${itemTaxa.preco.toFixed(2)}`;
+    lista.appendChild(itemElement);
+  }
+
+  // Atualizar total
+  const total = carrinho.reduce((acc, item) => acc + item.preco, 0);
+  document.getElementById("total").innerText = total.toFixed(2);
+}
+
 
     function removerItem(index) {
       if (carrinho[index].produto === "Taxa de Entrega") return;
@@ -670,13 +706,13 @@
       atualizarCarrinho();
     }
 
-    function aplicarDescontoPix(total) {
-      const pagamento = document.getElementById("pagamento").value;
-      if (pagamento === "Pix") {
-        return total * 0.95; // 5% de desconto
-      }
-      return total;
-    }
+    //--function aplicarDescontoPix(total) {
+      //const pagamento = document.getElementById("pagamento").value;
+      //if (pagamento === "Pix") {
+        //return total * 0.95; // 5% de desconto
+      //}
+      //return total;
+    //}
 
     function finalizarPedido() {
       if (carrinho.length === 0) {
@@ -687,6 +723,7 @@
       const nome = document.getElementById("nomeCliente").value.trim();
       const retiradaEntrega = retiradaEntregaSelect.value;
       const pagamento = document.getElementById("pagamento").value;
+      const observacao = document.getElementById("observacao").value.trim();
 
       if (nome === "") {
         alert("Por favor, informe seu nome para continuar.");
@@ -702,21 +739,22 @@
 
       carrinho.forEach(item => {
         mensagem += `▪️ ${item.produto} - R$ ${item.preco.toFixed(2)}%0A`;
+        mensagem += `*📋 Observações:* ${observacao || "Nenhuma"}%0A`;
       });
 
       let total = carrinho.reduce((acc, item) => acc + item.preco, 0);
       
       // Aplicar desconto se for Pix
-      if (pagamento === "Pix") {
-        const totalSemDesconto = total;
-        total = aplicarDescontoPix(total);
-        mensagem += `%0A*💎 Desconto Pix (5%):* -R$ ${(totalSemDesconto - total).toFixed(2)}%0A`;
-      }
+      //if (pagamento === "Pix") {
+        //const totalSemDesconto = total;
+        //total = aplicarDescontoPix(total);
+        //mensagem += `%0A*💎 Desconto Pix (5%):* -R$ ${(totalSemDesconto - total).toFixed(2)}%0A`;
+      //}
       
       mensagem += `%0A*✅ TOTAL: R$ ${total.toFixed(2)}*%0A%0A`;
       mensagem += `*📋 Observações:* ...`;
 
-      const telefone = "5548991720692";
+      const telefone = "554899999298";
       const url = `https://wa.me/${telefone}?text=${mensagem}`;
       window.open(url, "_blank");
     }
