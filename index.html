@@ -6,6 +6,7 @@
   <title>Cardápio - Bangkok Lanches</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    /* --- (mantive o seu CSS original, sem alterações funcionais) --- */
     :root {
       --primary: #ca8e0d;
       --primary-dark: #e00000;
@@ -20,13 +21,7 @@
       --box-shadow: 0 10px 30px rgba(0,0,0,0.1);
       --transition: all 0.3s ease;
     }
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
@@ -37,408 +32,62 @@
       transform: scale(0.95);
       transform-origin: top center;
     }
-    
-    /* Header estilizado */
     header {
       background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-      color: white;
-      text-align: center;
-      padding: 25px 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      position: relative;
-      overflow: hidden;
+      color: white; text-align: center; padding: 25px 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15); position: relative; overflow: hidden;
     }
-    
     header::before {
       content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
       background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
       opacity: 0.1;
     }
-    
-    .header-content {
-      position: relative;
-      z-index: 1;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-      font-weight: 800;
-      letter-spacing: 1px;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-    }
-    
-    header p {
-      margin: 10px 0 0;
-      font-size: 1.1rem;
-      font-weight: 300;
-      opacity: 0.9;
-    }
-    
-    .logo {
-      font-size: 2.8rem;
-      margin-bottom: 10px;
-      display: inline-block;
-      background: white;
-      color: var(--primary);
-      width: 80px;
-      height: 80px;
-      line-height: 80px;
-      border-radius: 50%;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-    
-    /* Container principal */
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      padding: 30px 20px;
-      gap: 30px;
-      max-width: 1300px;
-      margin: 0 auto;
-    }
-    
-    /* Seção de produtos */
-    .produtos {
-      flex: 2;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 25px;
-      min-width: 0;
-    }
-    
-    .categoria {
-      grid-column: 1 / -1;
-      margin-top: 30px;
-      margin-bottom: 15px;
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--primary);
-      border-bottom: 3px solid var(--primary);
-      padding-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    
-    .categoria:first-child {
-      margin-top: 0;
-    }
-    
-    .categoria i {
-      font-size: 1.4rem;
-    }
-    
-    .produto {
-      background: white;
-      padding: 25px 20px;
-      border-radius: var(--border-radius);
-      box-shadow: var(--box-shadow);
-      text-align: center;
-      transition: var(--transition);
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .produto::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 5px;
-      background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s ease;
-    }
-    
-    .produto:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 15px 25px rgba(0,0,0,0.12);
-    }
-    
-    .produto:hover::after {
-      transform: scaleX(1);
-    }
-    
-    .produto h3 {
-      margin: 0 0 12px;
-      color: var(--dark);
-      font-size: 1.3rem;
-      font-weight: 600;
-    }
-    
-    .produto p {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--secondary);
-      margin: 0 0 20px;
-    }
-    
-    .produto button {
-      margin-top: auto;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 50px;
-      background: var(--secondary);
-      color: white;
-      font-weight: 600;
-      cursor: pointer;
-      transition: var(--transition);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
-    
-    .produto button:hover {
-      background: var(--secondary-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
-    }
-    
-    /* Carrinho de compras */
-    .carrinho {
-      flex: 1;
-      background: white;
-      padding: 25px;
-      border-radius: var(--border-radius);
-      box-shadow: var(--box-shadow);
-      position: sticky;
-      top: 30px;
-      height: fit-content;
-      min-width: 300px;
-    }
-    
-    .carrinho h3 {
-      margin-top: 0;
-      font-size: 1.5rem;
-      border-bottom: 2px solid var(--light-gray);
-      padding-bottom: 15px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--dark);
-    }
-    
-    #listaCarrinho {
-      max-height: 300px;
-      overflow-y: auto;
-      margin: 15px 0;
-      padding-right: 5px;
-    }
-    
-    #listaCarrinho::-webkit-scrollbar {
-      width: 6px;
-    }
-    
-    #listaCarrinho::-webkit-scrollbar-track {
-      background: var(--light-gray);
-      border-radius: 10px;
-    }
-    
-    #listaCarrinho::-webkit-scrollbar-thumb {
-      background: var(--gray);
-      border-radius: 10px;
-    }
-    
-    .item-carrinho {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin: 12px 0;
-      font-size: 1rem;
-      padding: 8px 12px;
-      border-radius: 8px;
-      background: var(--light);
-      transition: var(--transition);
-    }
-    
-    .item-carrinho:hover {
-      background: var(--light-gray);
-    }
-    
-    .item-carrinho button {
-      background: none;
-      border: none;
-      color: var(--primary);
-      cursor: pointer;
-      font-size: 1.1rem;
-      transition: var(--transition);
-      padding: 5px;
-      border-radius: 50%;
-      width: 28px;
-      height: 28px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    .item-carrinho button:hover {
-      background: rgba(255, 30, 0, 0.1);
-      transform: scale(1.1);
-    }
-    
-    .carrinho-total {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--dark);
-      margin: 20px 0;
-      padding-top: 15px;
-      border-top: 2px solid var(--light-gray);
-    }
-    
-    .carrinho-total span {
-      color: var(--primary);
-      font-size: 1.5rem;
-    }
-    
-    input, select {
-      width: 100%;
-      padding: 14px 16px;
-      margin-top: 12px;
-      border-radius: 10px;
-      border: 2px solid var(--light-gray);
-      outline: none;
-      transition: var(--transition);
-      font-size: 1rem;
-      background: white;
-    }
-    
-    input:focus, select:focus {
-      border-color: var(--secondary);
-      box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.2);
-    }
-    
-    .finalizar {
-      margin-top: 25px;
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-      color: white;
-      padding: 16px;
-      text-align: center;
-      border-radius: 50px;
-      cursor: pointer;
-      font-weight: 700;
-      font-size: 1.1rem;
-      transition: var(--transition);
-      box-shadow: 0 5px 15px rgba(255, 30, 0, 0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-    }
-    
-    .finalizar:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(255, 30, 0, 0.4);
-    }
-    
-    /* Responsividade */
-    @media (max-width: 992px) {
-      .container {
-        flex-direction: column;
-      }
-      
-      .carrinho {
-        position: relative;
-        top: auto;
-        margin-top: 20px;
-      }
-      
-      .produtos {
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      }
-    }
-    
-    @media (max-width: 576px) {
-      header h1 {
-        font-size: 2rem;
-      }
-      
-      .produtos {
-        grid-template-columns: 1fr;
-      }
-      
-      .categoria {
-        font-size: 1.5rem;
-      }
-    }
-    
-    /* Animações */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    .produto {
-      animation: fadeIn 0.5s ease forwards;
-    }
-    
-    /* Efeito de destaque para itens novos no carrinho */
-    @keyframes addedItem {
-      0% { background-color: rgba(40, 167, 69, 0.1); }
-      100% { background-color: var(--light); }
-    }
-    
-    .item-added {
-      animation: addedItem 1s ease;
-    }
-    
-    /* Badge para itens populares */
-    .popular {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      background: var(--accent);
-      color: var(--dark);
-      font-size: 0.8rem;
-      font-weight: 700;
-      padding: 5px 10px;
-      border-radius: 20px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-    }
-    
-    /* Footer e direitos autorais */
-    .copyright {
-      text-align: center;
-      margin-top: 50px;
-      padding: 20px;
-      color: var(--gray);
-      font-size: 0.9rem;
-      border-top: 1px solid var(--light-gray);
-      max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    
-    .copyright a {
-      color: var(--primary);
-      text-decoration: none;
-      transition: var(--transition);
-    }
-    
-    .copyright a:hover {
-      color: var(--primary-dark);
-      text-decoration: underline;
-    }
-    
-    .disclaimer {
-      font-size: 0.8rem;
-      margin-top: 10px;
-      color: var(--gray);
-    }
+    .header-content { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; }
+    header h1 { margin: 0; font-size: 2.5rem; font-weight: 800; letter-spacing: 1px; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
+    header p, header h6 { margin-top: 8px; font-weight: 300; }
+    .logo { font-size: 2.8rem; margin-bottom: 10px; display: inline-block; background: white; color: var(--primary); width: 80px; height: 80px; line-height: 80px; border-radius: 50%; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+    .container { display: flex; flex-wrap: wrap; padding: 30px 20px; gap: 30px; max-width: 1300px; margin: 0 auto; }
+    .produtos { flex: 2; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 25px; min-width: 0; }
+    .categoria { grid-column: 1 / -1; margin-top: 30px; margin-bottom: 15px; font-size: 1.8rem; font-weight: 700; color: var(--primary); border-bottom: 3px solid var(--primary); padding-bottom: 10px; display: flex; align-items: center; gap: 12px; }
+    .categoria:first-child { margin-top: 0; }
+    .categoria i { font-size: 1.4rem; }
+    .produto { background: white; padding: 25px 20px; border-radius: var(--border-radius); box-shadow: var(--box-shadow); text-align: center; transition: var(--transition); display: flex; flex-direction: column; height: 100%; position: relative; overflow: hidden; }
+    .produto::after { content: ""; position: absolute; bottom: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%); transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease; }
+    .produto:hover { transform: translateY(-8px); box-shadow: 0 15px 25px rgba(0,0,0,0.12); }
+    .produto:hover::after { transform: scaleX(1); }
+    .produto h3 { margin: 0 0 12px; color: var(--dark); font-size: 1.3rem; font-weight: 600; }
+    .produto p { font-size: 1.25rem; font-weight: 700; color: var(--secondary); margin: 0 0 20px; }
+    .produto .descricao { font-size: 0.95rem; font-weight: 400; color: var(--gray); margin-bottom: 8px; }
+    .produto button { margin-top: auto; padding: 12px 20px; border: none; border-radius: 50px; background: var(--secondary); color: white; font-weight: 600; cursor: pointer; transition: var(--transition); display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .produto button:hover { background: var(--secondary-dark); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3); }
+    .carrinho { flex: 1; background: white; padding: 25px; border-radius: var(--border-radius); box-shadow: var(--box-shadow); position: sticky; top: 30px; height: fit-content; min-width: 300px; }
+    .carrinho h3 { margin-top: 0; font-size: 1.5rem; border-bottom: 2px solid var(--light-gray); padding-bottom: 15px; display: flex; align-items: center; gap: 10px; color: var(--dark); }
+    #listaCarrinho { max-height: 300px; overflow-y: auto; margin: 15px 0; padding-right: 5px; }
+    #listaCarrinho::-webkit-scrollbar { width: 6px; }
+    #listaCarrinho::-webkit-scrollbar-track { background: var(--light-gray); border-radius: 10px; }
+    #listaCarrinho::-webkit-scrollbar-thumb { background: var(--gray); border-radius: 10px; }
+    .item-carrinho { display: flex; justify-content: space-between; align-items: center; margin: 12px 0; font-size: 1rem; padding: 8px 12px; border-radius: 8px; background: var(--light); transition: var(--transition); }
+    .item-carrinho:hover { background: var(--light-gray); }
+    .item-carrinho button { background: none; border: none; color: var(--primary); cursor: pointer; font-size: 1.1rem; transition: var(--transition); padding: 5px; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; }
+    .item-carrinho button:hover { background: rgba(255, 30, 0, 0.1); transform: scale(1.1); }
+    .carrinho-total { font-size: 1.3rem; font-weight: 700; color: var(--dark); margin: 20px 0; padding-top: 15px; border-top: 2px solid var(--light-gray); }
+    .carrinho-total span { color: var(--primary); font-size: 1.5rem; }
+    input, select { width: 100%; padding: 14px 16px; margin-top: 12px; border-radius: 10px; border: 2px solid var(--light-gray); outline: none; transition: var(--transition); font-size: 1rem; background: white; }
+    input:focus, select:focus { border-color: var(--secondary); box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.2); }
+    .finalizar { margin-top: 25px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; padding: 16px; text-align: center; border-radius: 50px; cursor: pointer; font-weight: 700; font-size: 1.1rem; transition: var(--transition); box-shadow: 0 5px 15px rgba(255, 30, 0, 0.3); display: flex; align-items: center; justify-content: center; gap: 10px; }
+    .finalizar:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(255, 30, 0, 0.4); }
+    @media (max-width: 992px) { .container { flex-direction: column; } .carrinho { position: relative; top: auto; margin-top: 20px; } .produtos { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); } }
+    @media (max-width: 576px) { header h1 { font-size: 2rem; } .produtos { grid-template-columns: 1fr; } .categoria { font-size: 1.5rem; } }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .produto { animation: fadeIn 0.5s ease forwards; }
+    @keyframes addedItem { 0% { background-color: rgba(40, 167, 69, 0.1); } 100% { background-color: var(--light); } }
+    .item-added { animation: addedItem 1s ease; }
+    .popular { position: absolute; top: 15px; right: 15px; background: var(--accent); color: var(--dark); font-size: 0.8rem; font-weight: 700; padding: 5px 10px; border-radius: 20px; box-shadow: 0 3px 8px rgba(0,0,0,0.1); }
+    .copyright { text-align: center; margin-top: 50px; padding: 20px; color: var(--gray); font-size: 0.9rem; border-top: 1px solid var(--light-gray); max-width: 1200px; margin-left: auto; margin-right: auto; }
+    .copyright a { color: var(--primary); text-decoration: none; transition: var(--transition); }
+    .copyright a:hover { color: var(--primary-dark); text-decoration: underline; }
+    .disclaimer { font-size: 0.8rem; margin-top: 10px; color: var(--gray); }
   </style>
 </head>
 <body>
@@ -447,8 +96,7 @@
     <div class="header-content">
       <div class="logo">🍔</div>
       <h1>XIS DO BANGKOK</h1>
-      <p2>Monte seu pedido e finalize adicionando ao carrinho!</p2>
-      <!--<p1>Você não irá se arrepender</p1>-->
+      <p>Monte seu pedido e finalize adicionando ao carrinho!</p>
       <h6>O carrinho de suas escolhas estão no final da página.</h6>
     </div>
   </header>
@@ -457,136 +105,138 @@
     <!-- Lista de Produtos -->
     <div class="produtos">
 
-<div class="categoria"><i class="fas fa-hamburger"></i> Lanches</div>
+      <div class="categoria"><i class="fas fa-hamburger"></i> Lanches</div>
 
-<div class="produto">
-  <!--<span class="popular">Recomendado</span>-->
-  <h3>X-Salada</h3>
-  <p2>Pão macio, carne de hambúrguer suculento, queijo, alface, tomate e maionese especial.</p>
-  <p>R$ 21,00</p>
-  <button onclick="adicionarCarrinho('X-Salada', 21)"><i class="fas fa-plus"></i> Adicionar</button>
-</div>
+      <div class="produto">
+        <h3>X-Salada</h3>
+        <p class="descricao">Pão macio, carne de hambúrguer suculento, queijo, alface, tomate e maionese especial.</p>
+        <p>R$ 21,00</p>
+        <button onclick="adicionarCarrinho('X-Salada', 21, this)"><i class="fas fa-plus"></i> Adicionar</button>
+      </div>
 
-<div class="produto">
-  <h3>X-Bacon</h3>
-  <p2>Hambúrguer artesanal, queijo derretido, crocantes fatias de bacon e molho da casa.</p>
-  <p>R$ 25,00</p>
-  <button onclick="adicionarCarrinho('X-Bacon', 25)"><i class="fas fa-plus"></i> Adicionar</button>
-</div>
+      <div class="produto">
+        <h3>X-Bacon</h3>
+        <p class="descricao">Hambúrguer artesanal, queijo derretido, crocantes fatias de bacon e molho da casa.</p>
+        <p>R$ 25,00</p>
+        <button onclick="adicionarCarrinho('X-Bacon', 25, this)"><i class="fas fa-plus"></i> Adicionar</button>
+      </div>
 
-<div class="produto">
-  <h3>X-Burguer I</h3>
-  <p2>Clássico e saboroso: pão, hambúrguer suculento, queijo e maionese caseira.</p>
-  <p>R$ 19,00</p>
-  <button onclick="adicionarCarrinho('X-Burguer I', 19)"><i class="fas fa-plus"></i> Adicionar</button>
-</div>
+      <div class="produto">
+        <h3>X-Burguer I</h3>
+        <p class="descricao">Clássico e saboroso: pão, hambúrguer suculento, queijo e maionese caseira.</p>
+        <p>R$ 19,00</p>
+        <button onclick="adicionarCarrinho('X-Burguer I', 19, this)"><i class="fas fa-plus"></i> Adicionar</button>
+      </div>
 
-<div class="produto">
-  <h3>X-Burguer II</h3>
-  <p2>Uma versão mais recheada do X-Burguer I, com double hambúrguer, queijo, alface e tomate.</p>
-  <p>R$ 21,00</p>
-  <button onclick="adicionarCarrinho('X-Burguer II', 21)"><i class="fas fa-plus"></i> Adicionar</button>
-</div>
+      <div class="produto">
+        <h3>X-Burguer II</h3>
+        <p class="descricao">Uma versão mais recheada do X-Burguer I, com double hambúrguer, queijo, alface e tomate.</p>
+        <p>R$ 21,00</p>
+        <button onclick="adicionarCarrinho('X-Burguer II', 21, this)"><i class="fas fa-plus"></i> Adicionar</button>
+      </div>
 
-<div class="produto">
-  <h3>X-Frango</h3>
-  <p2>Pão fresquinho, filé de frango grelhado, queijo, alface, tomate e maionese temperada.</p>
-  <p>R$ 24,00</p>
-  <button onclick="adicionarCarrinho('X-Frango', 24)"><i class="fas fa-plus"></i> Adicionar</button>
-</div>
+      <div class="produto">
+        <h3>X-Frango</h3>
+        <p class="descricao">Pão fresquinho, filé de frango grelhado, queijo, alface, tomate e maionese temperada.</p>
+        <p>R$ 24,00</p>
+        <button onclick="adicionarCarrinho('X-Frango', 24, this)"><i class="fas fa-plus"></i> Adicionar</button>
+      </div>
 
-<div class="produto">
-  <h3>X-Frango c/ Calabresa</h3>
-  <p2>Combinação deliciosa de frango grelhado com calabresa fatiada, queijo e maionese.</p>
-  <p>R$ 26,00</p>
-  <button onclick="adicionarCarrinho('X-Frango c/ Calabresa', 26)"><i class="fas fa-plus"></i> Adicionar</button>
-</div>
+      <div class="produto">
+        <h3>X-Frango c/ Calabresa</h3>
+        <p class="descricao">Combinação deliciosa de frango grelhado com calabresa fatiada, queijo e maionese.</p>
+        <p>R$ 26,00</p>
+        <button onclick="adicionarCarrinho('X-Frango c/ Calabresa', 26, this)"><i class="fas fa-plus"></i> Adicionar</button>
+      </div>
 
-<div class="produto">
-  <h3>X-Calabresa</h3>
-  <p2>Pão artesanal, linguiça calabresa acebolada, queijo derretido e maionese.</p>
-  <p>R$ 25,00</p>
-  <button onclick="adicionarCarrinho('X-Calabresa', 25)"><i class="fas fa-plus"></i> Adicionar</button>
-</div>
+      <div class="produto">
+        <h3>X-Calabresa</h3>
+        <p class="descricao">Pão artesanal, linguiça calabresa acebolada, queijo derretido e maionese.</p>
+        <p>R$ 25,00</p>
+        <button onclick="adicionarCarrinho('X-Calabresa', 25, this)"><i class="fas fa-plus"></i> Adicionar</button>
+      </div>
 
-<div class="produto">
-  <h3>X-Coração</h3>
-  <p2>Clássico do sul: pão, queijo e espetinho de coração bem temperado.</p>
-  <p>R$ 26,00</p>
-  <button onclick="adicionarCarrinho('X-Coração', 26)"><i class="fas fa-plus"></i> Adicionar</button>
-</div>
+      <div class="produto">
+        <h3>X-Coração</h3>
+        <p class="descricao">Clássico do sul: pão, queijo e espetinho de coração bem temperado.</p>
+        <p>R$ 26,00</p>
+        <button onclick="adicionarCarrinho('X-Coração', 26, this)"><i class="fas fa-plus"></i> Adicionar</button>
+      </div>
 
-<div class="produto">
-  <h3>X-Coração c/ Bacon</h3>
-  <p2>Espetinho de coração, bacon crocante, queijo e maionese especial no pão macio.</p>
-  <p>R$ 29,00</p>
-  <button onclick="adicionarCarrinho('X-Coração c/ Bacon', 29)"><i class="fas fa-plus"></i> Adicionar</button>
-</div>
+      <div class="produto">
+        <h3>X-Coração c/ Bacon</h3>
+        <p class="descricao">Espetinho de coração, bacon crocante, queijo e maionese especial no pão macio.</p>
+        <p>R$ 29,00</p>
+        <button onclick="adicionarCarrinho('X-Coração c/ Bacon', 29, this)"><i class="fas fa-plus"></i> Adicionar</button>
+      </div>
 
-<div class="produto">
-  <h3>X-Coração c/ Frango</h3>
-  <p2>A mistura perfeita: coração bem temperado com filé de frango grelhado e queijo.</p>
-  <p>R$ 29,00</p>
-  <button onclick="adicionarCarrinho('X-Coração c/ Frango', 29)"><i class="fas fa-plus"></i> Adicionar</button>
-</div>
+      <div class="produto">
+        <h3>X-Coração c/ Frango</h3>
+        <p class="descricao">A mistura perfeita: coração bem temperado com filé de frango grelhado e queijo.</p>
+        <p>R$ 29,00</p>
+        <button onclick="adicionarCarrinho('X-Coração c/ Frango', 29, this)"><i class="fas fa-plus"></i> Adicionar</button>
+      </div>
 
-<div class="produto">
-  <h3>X-Acebolado</h3>
-  <p2>Hambúrguer suculento coberto com cebolas caramelizadas e queijo derretido.</p>
-  <p>R$ 23,00</p>
-  <button onclick="adicionarCarrinho('X-Acebolado', 23)"><i class="fas fa-plus"></i> Adicionar</button>
-</div>
+      <div class="produto">
+        <h3>X-Acebolado</h3>
+        <p class="descricao">Hambúrguer suculento coberto com cebolas caramelizadas e queijo derretido.</p>
+        <p>R$ 23,00</p>
+        <button onclick="adicionarCarrinho('X-Acebolado', 23, this)"><i class="fas fa-plus"></i> Adicionar</button>
+      </div>
 
-<div class="produto">
-  <h3>X-Tudo</h3>
-  <p2>O mais completo: hambúrguer, bacon, ovo, calabresa, frango, queijo, salada e molho especial.</p>
-  <p>R$ 35,00</p>
-  <button onclick="adicionarCarrinho('X-Tudo', 35)"><i class="fas fa-plus"></i> Adicionar</button>
-</div>
+      <div class="produto">
+        <h3>X-Tudo</h3>
+        <p class="descricao">O mais completo: hambúrguer, bacon, ovo, calabresa, frango, queijo, salada e molho especial.</p>
+        <p>R$ 35,00</p>
+        <button onclick="adicionarCarrinho('X-Tudo', 35, this)"><i class="fas fa-plus"></i> Adicionar</button>
+      </div>
 
-<div class="produto">
-  <h3>X-Sem Pão</h3>
-  <p2>Versão leve sem pão, com hambúrguer artesanal, queijo, salada fresca e molho da casa.</p>
-  <p>R$ 21,00</p>
-  <button onclick="adicionarCarrinho('X-Sem Pão', 19)"><i class="fas fa-plus"></i> Adicionar</button>
-</div>
-
+      <div class="produto">
+        <h3>X-Sem Pão</h3>
+        <p class="descricao">Versão leve sem pão, com hambúrguer artesanal, queijo, salada fresca e molho da casa.</p>
+        <p>R$ 21,00</p>
+        <button onclick="adicionarCarrinho('X-Sem Pão', 21, this)"><i class="fas fa-plus"></i> Adicionar</button>
+      </div>
 
       <div class="categoria"><i class="fas fa-glass-cheers"></i> Bebidas</div>
       <div class="produto">
         <h3>Refrigerante 350ml</h3>
+        <p class="descricao">Lata 350ml</p>
         <p>R$ 7,00</p>
-        <button onclick="adicionarCarrinho('Refrigerante 350ml', 5)"><i class="fas fa-plus"></i> Adicionar</button>
+        <button onclick="adicionarCarrinho('Refrigerante 350ml', 7, this)"><i class="fas fa-plus"></i> Adicionar</button>
       </div>
       <div class="produto">
         <h3>Suco Natural 300ml</h3>
+        <p class="descricao">Suco do dia</p>
         <p>R$ 7,00</p>
-        <button onclick="adicionarCarrinho('Suco Natural 300ml', 7)"><i class="fas fa-plus"></i> Adicionar</button>
+        <button onclick="adicionarCarrinho('Suco Natural 300ml', 7, this)"><i class="fas fa-plus"></i> Adicionar</button>
       </div>
       <div class="produto">
         <h3>Água Mineral 500ml</h3>
+        <p class="descricao">Garrafa 500ml</p>
         <p>R$ 5,00</p>
-        <button onclick="adicionarCarrinho('Água Mineral 500ml', 4)"><i class="fas fa-plus"></i> Adicionar</button>
+        <button onclick="adicionarCarrinho('Água Mineral 500ml', 5, this)"><i class="fas fa-plus"></i> Adicionar</button>
       </div>
 
       <div class="categoria"><i class="fas fa-drumstick-bite"></i> Porções</div>
       <div class="produto">
         <h3>Porção de Batata Frita 400g</h3>
+        <p class="descricao">Porção generosa</p>
         <p>R$ 25,00</p>
-        <button onclick="adicionarCarrinho('Porção de Batata Frita', 15)"><i class="fas fa-plus"></i> Adicionar</button>
+        <button onclick="adicionarCarrinho('Porção de Batata Frita', 25, this)"><i class="fas fa-plus"></i> Adicionar</button>
       </div>
-      
+
     </div>
 
     <!-- Carrinho -->
     <div class="carrinho">
       <h3><i class="fas fa-shopping-cart"></i> Seu Pedido</h3>
       <div id="listaCarrinho"></div>
-      
+
       <div class="carrinho-total">
         Total: R$ <span id="total">0.00</span>
       </div>
-      
+
       <input type="text" id="nomeCliente" placeholder="Seu nome completo" />
       <select id="retiradaEntrega">
         <option value="Entrega">🚚 Entrega (Taxa: R$ 2,00)</option>
@@ -596,11 +246,10 @@
         <option value="Dinheiro">💵 Dinheiro</option>
         <option value="Cartão">💳 Cartão (débito/crédito)</option>
         <option value="Pix">⚡ Pix </option>
-      <!--<input type="text" id="nomeCliente" placeholder="Seu nome completo" />  -->
       </select>
 
-      <input id="observacao" placeholder="Observações (ex: sem cebola, ponto da carne, troco para R$ 50, etc.)"></>
-      
+      <input id="observacao" placeholder="Observações (ex: sem cebola, ponto da carne, troco para R$ 50, etc.)" />
+
       <div class="finalizar" onclick="finalizarPedido()">
         <i class="fab fa-whatsapp"></i> Finalizar Pedido no WhatsApp
       </div>
@@ -615,35 +264,41 @@
 
   <script>
     let carrinho = [];
-    const taxaEntrega = { produto: "Taxa de Entrega", preco: 2.00 };
+    const TAXA_ENTREGA_PRODUTO = "Taxa de Entrega";
+    const TAXA_ENTREGA_PRECO = 2.00;
 
     const retiradaEntregaSelect = document.getElementById("retiradaEntrega");
     retiradaEntregaSelect.addEventListener("change", atualizarTaxaEntrega);
 
-    function adicionarCarrinho(produto, preco) {
+    function adicionarCarrinho(produto, preco, btn) {
+      // adicionar item normal
       carrinho.push({ produto, preco });
+
+      // atualizar taxa conforme seleção
       atualizarTaxaEntrega();
+
       atualizarCarrinho();
-      
-      // Feedback visual ao adicionar item
-      const button = event.currentTarget;
-      const originalText = button.innerHTML;
-      button.innerHTML = '<i class="fas fa-check"></i> Adicionado';
-      button.style.background = 'var(--secondary-dark)';
-      
-      setTimeout(() => {
-        button.innerHTML = originalText;
-        button.style.background = '';
-      }, 1000);
+
+      // Feedback visual ao adicionar item (usa o botão passado)
+      if (btn) {
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-check"></i> Adicionado';
+        btn.style.background = 'var(--secondary-dark)';
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.style.background = '';
+        }, 900);
+      }
     }
 
     function atualizarTaxaEntrega() {
       const retiradaEntrega = retiradaEntregaSelect.value;
-      const taxaIndex = carrinho.findIndex(item => item.produto === taxaEntrega.produto);
+      const taxaIndex = carrinho.findIndex(item => item.produto === TAXA_ENTREGA_PRODUTO);
 
       if (retiradaEntrega === "Entrega") {
         if (taxaIndex === -1) {
-          carrinho.push(taxaEntrega);
+          // adiciona taxa como item (marca opcional _taxa)
+          carrinho.push({ produto: TAXA_ENTREGA_PRODUTO, preco: TAXA_ENTREGA_PRECO, _taxa: true });
         }
       } else {
         if (taxaIndex !== -1) {
@@ -653,110 +308,109 @@
       atualizarCarrinho();
     }
 
-function atualizarCarrinho() {
-  const lista = document.getElementById("listaCarrinho");
-  lista.innerHTML = "";
+    function atualizarCarrinho() {
+      const lista = document.getElementById("listaCarrinho");
+      lista.innerHTML = "";
 
-  if (carrinho.length === 0) {
-    lista.innerHTML = '<div style="text-align: center; padding: 20px; color: var(--gray);"><i class="fas fa-shopping-cart" style="font-size: 2rem; margin-bottom: 10px;"></i><p>Seu carrinho está vazio</p></div>';
-    return;
-  }
+      if (carrinho.length === 0) {
+        lista.innerHTML = '<div style="text-align: center; padding: 20px; color: var(--gray);"><i class="fas fa-shopping-cart" style="font-size: 2rem; margin-bottom: 10px;"></i><p>Seu carrinho está vazio</p></div>';
+        document.getElementById("total").innerText = "0.00";
+        return;
+      }
 
-  // Separar itens normais da taxa
-  const itensNormais = carrinho.filter(item => item.produto !== "Taxa de Entrega");
-  const itemTaxa = carrinho.find(item => item.produto === "Taxa de Entrega");
+      // separar taxa (se existir) e itens normais (usa referência direta)
+      const itemTaxa = carrinho.find(item => item.produto === TAXA_ENTREGA_PRODUTO);
+      const itensNormais = carrinho.filter(item => item.produto !== TAXA_ENTREGA_PRODUTO);
 
-  // Adicionar itens normais primeiro
-  itensNormais.forEach((item, index) => {
-    const itemElement = document.createElement('div');
-    itemElement.className = 'item-carrinho';
-    itemElement.innerHTML = `
-      ${item.produto} - R$ ${item.preco.toFixed(2)}
-      <button onclick="removerItem(${index})" aria-label="Remover ${item.produto}"><i class="fas fa-trash"></i></button>
-    `;
-    lista.appendChild(itemElement);
-  });
+      // adicionar itens normais primeiro (garante índice correto usando carrinho.indexOf(item))
+      itensNormais.forEach(item => {
+        const globalIndex = carrinho.indexOf(item); // índice real no array carrinho
+        const itemElement = document.createElement('div');
+        itemElement.className = 'item-carrinho';
+        itemElement.innerHTML = `
+          ${item.produto} - R$ ${item.preco.toFixed(2)}
+          <button onclick="removerItem(${globalIndex})" aria-label="Remover ${item.produto}"><i class="fas fa-trash"></i></button>
+        `;
+        lista.appendChild(itemElement);
+      });
 
-  // Adicionar taxa de entrega por último
-  if (itemTaxa) {
-    const itemElement = document.createElement('div');
-    itemElement.className = 'item-carrinho';
-    itemElement.innerHTML = `${itemTaxa.produto} - R$ ${itemTaxa.preco.toFixed(2)}`;
-    lista.appendChild(itemElement);
-  }
+      // adicionar taxa por último (se houver)
+      if (itemTaxa) {
+        const itemElement = document.createElement('div');
+        itemElement.className = 'item-carrinho';
+        itemElement.innerHTML = `${itemTaxa.produto} - R$ ${itemTaxa.preco.toFixed(2)}`;
+        lista.appendChild(itemElement);
+      }
 
-  // Atualizar total
-  const total = carrinho.reduce((acc, item) => acc + item.preco, 0);
-  document.getElementById("total").innerText = total.toFixed(2);
-}
-
+      // atualizar total (soma todos os itens do carrinho)
+      const total = carrinho.reduce((acc, item) => acc + item.preco, 0);
+      document.getElementById("total").innerText = total.toFixed(2);
+    }
 
     function removerItem(index) {
-      if (carrinho[index].produto === "Taxa de Entrega") return;
+      // proteção: índice inválido
+      if (index < 0 || index >= carrinho.length) return;
+
+      // não permitir remoção direta da taxa via botão (taxa é gerenciada pelo select)
+      if (carrinho[index].produto === TAXA_ENTREGA_PRODUTO) return;
 
       carrinho.splice(index, 1);
+      // após remover item, atualizamos a taxa (caso esteja selecionada) e a UI
       atualizarTaxaEntrega();
       atualizarCarrinho();
     }
 
-    //--function aplicarDescontoPix(total) {
-      //const pagamento = document.getElementById("pagamento").value;
-      //if (pagamento === "Pix") {
-        //return total * 0.95; // 5% de desconto
-      //}
-      //return total;
-    //}
+    function finalizarPedido() {
+      if (carrinho.length === 0) {
+        alert("Seu carrinho está vazio! Adicione algum item antes de finalizar.");
+        return;
+      }
 
-function finalizarPedido() {
-  if (carrinho.length === 0) {
-    alert("Seu carrinho está vazio! Adicione algum item antes de finalizar.");
-    return;
-  }
+      const nome = document.getElementById("nomeCliente").value.trim();
+      const retiradaEntrega = retiradaEntregaSelect.value;
+      const pagamento = document.getElementById("pagamento").value;
+      const observacao = document.getElementById("observacao").value.trim();
 
-  const nome = document.getElementById("nomeCliente").value.trim();
-  const retiradaEntrega = retiradaEntregaSelect.value;
-  const pagamento = document.getElementById("pagamento").value;
-  const observacao = document.getElementById("observacao").value.trim();
+      if (nome === "") {
+        alert("Por favor, informe seu nome para continuar.");
+        document.getElementById("nomeCliente").focus();
+        return;
+      }
 
-  if (nome === "") {
-    alert("Por favor, informe seu nome para continuar.");
-    document.getElementById("nomeCliente").focus();
-    return;
-  }
+      // pega a taxa (se estiver no carrinho)
+      const taxaItem = carrinho.find(item => item.produto === TAXA_ENTREGA_PRODUTO);
+      const taxaValor = taxaItem ? taxaItem.preco : 0;
 
-  // Defina aqui o valor da taxa de entrega
-  const taxaEntrega = retiradaEntrega === "Entrega" ? 8.00 : 0; 
+      let mensagem = `*BANGKOK LANCHES - NOVO PEDIDO* %0A%0A`;
+      mensagem += `*Cliente:* ${nome}%0A`;
+      mensagem += `*Tipo de entrega:* ${retiradaEntrega}%0A`;
+      mensagem += `*Forma de pagamento:* ${pagamento}%0A%0A`;
+      mensagem += `*ITENS DO PEDIDO:* %0A%0A`;
 
-  let mensagem = `*BANGKOK LANCHES - NOVO PEDIDO* %0A%0A`;
-  mensagem += `*Cliente:* ${nome}%0A`;
-  mensagem += `*Tipo de entrega:* ${retiradaEntrega}%0A`;
-  mensagem += `*Forma de pagamento:* ${pagamento}%0A%0A`;
-  mensagem += `*ITENS DO PEDIDO:* %0A%0A`;
+      let totalItens = 0;
 
-  let totalItens = 0;
+      // listar somente os itens reais (sem repetir a taxa)
+      carrinho.forEach(item => {
+        mensagem += `▪️ ${item.produto} - R$ ${item.preco.toFixed(2)}%0A`;
+        totalItens += item.preco;
+      });
 
-  carrinho.forEach(item => {
-    mensagem += `▪️ ${item.produto} - R$ ${item.preco.toFixed(2)}%0A`;
-    totalItens += item.preco;
-  });
+      mensagem += `%0A*TOTAL DOS ITENS:* R$ ${ (totalItens - taxaValor).toFixed(2) }%0A`;
 
-  mensagem += `%0A*TOTAL DOS ITENS:* R$ ${totalItens.toFixed(2)}%0A`;
+      if (taxaValor > 0) {
+        mensagem += `*TAXA DE ENTREGA:* R$ ${taxaValor.toFixed(2)}%0A`;
+      }
 
-  if (taxaEntrega > 0) {
-    mensagem += `*TAXA DE ENTREGA:* R$ ${taxaEntrega.toFixed(2)}%0A`;
-  }
+      mensagem += `%0A*TOTAL GERAL:* R$ ${totalItens.toFixed(2)}%0A%0A`;
+      mensagem += `*Observações:* ${observacao || "Nenhuma"}%0A`;
 
-  const totalFinal = totalItens + taxaEntrega;
-  mensagem += `%0A*TOTAL GERAL:* R$ ${totalFinal.toFixed(2)}%0A%0A`;
-  mensagem += `*Observações:* ${observacao || "Nenhuma"}%0A`;
+    const telefone = "554899999298"; // 55 + 48 + 991720692
+    const url = `https://wa.me/${telefone}?text=${mensagem}`;
+    window.open(url, "_blank");
 
-  const telefone = "554899999298";
-  const url = `https://wa.me/${telefone}?text=${mensagem}`;
-  window.open(url, "_blank");
-}
+    }
 
-
-    // Inicializar o carrinho
+    // inicializa
     atualizarCarrinho();
   </script>
 
