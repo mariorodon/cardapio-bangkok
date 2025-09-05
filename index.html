@@ -390,11 +390,9 @@
       });
 
       mensagem += `%0A*TOTAL DOS ITENS:* R$ ${ (totalItens - taxaValor).toFixed(2) }%0A`;
-
-      if (taxaValor > 0) {
-        mensagem += `*TAXA DE ENTREGA:* R$ ${taxaValor.toFixed(2)}%0A`;
-      }
-
+      //if (taxaValor > 0) {
+        //mensagem += `*TAXA DE ENTREGA:* R$ ${taxaValor.toFixed(2)}%0A`;
+      //}
       mensagem += `%0A*TOTAL GERAL:* R$ ${totalItens.toFixed(2)}%0A%0A`;
       mensagem += `*Observações:* ${observacao || "Nenhuma"}%0A`;
 
@@ -410,5 +408,6 @@
 
 </body>
 </html>
+
 
 
