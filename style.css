@@ -327,3 +327,8 @@ input:focus, select:focus {
   #botaoCarrinhoFlutuante { display: none; }
 }
 
+#botaoCarrinhoFlutuante {
+  display: flex !important;
+}
+
+
