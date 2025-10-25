@@ -55,6 +55,10 @@
       font-size: 0.9rem; margin-top: -30px;
     }
     .logout:hover { text-decoration: underline; }
+    .data-hora {
+      text-align: right; font-size: 0.9rem; color: #ccc;
+      margin-top: -10px; margin-bottom: 10px;
+    }
   </style>
 </head>
 <body>
@@ -68,6 +72,8 @@
 <div class="painel" id="painel" style="display:none;">
   <h1>Painel Administrativo 🍔</h1>
   <div class="logout" onclick="sair()">Sair</div>
+  <div class="data-hora" id="dataHora"></div>
+
   <div class="cards">
     <div class="card"><h3>Hoje</h3><p id="vendasDia">R$ 0,00</p></div>
     <div class="card"><h3>Semana</h3><p id="vendasSemana">R$ 0,00</p></div>
@@ -80,7 +86,7 @@
 
   <table>
     <thead>
-      <tr><th>Data</th><th>Total (R$)</th><th>Itens</th></tr>
+      <tr><th>Data</th><th>Hora</th><th>Total (R$)</th><th>Itens</th></tr>
     </thead>
     <tbody id="tabelaVendas"></tbody>
   </table>
@@ -96,6 +102,7 @@ function verificarSenha() {
     document.getElementById("loginBox").style.display = "none";
     document.getElementById("painel").style.display = "block";
     carregarVendas();
+    atualizarDataHora();
   } else alert("Senha incorreta!");
 }
 
@@ -108,6 +115,17 @@ if (localStorage.getItem("logadoAnalytics") === "1") {
   document.getElementById("loginBox").style.display = "none";
   document.getElementById("painel").style.display = "block";
   carregarVendas();
+  atualizarDataHora();
+}
+
+function atualizarDataHora() {
+  const el = document.getElementById("dataHora");
+  const atualizar = () => {
+    const agora = new Date();
+    el.textContent = "⏰ " + agora.toLocaleString("pt-BR");
+  };
+  atualizar();
+  setInterval(atualizar, 1000);
 }
 
 function carregarVendas() {
@@ -124,25 +142,27 @@ function carregarVendas() {
     const data = new Date(v.data);
     const diffDias = (hoje - data) / (1000 * 60 * 60 * 24);
     const dataStr = data.toLocaleDateString("pt-BR");
+    const horaStr = data.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" });
 
-    // totais
     totalGeral += v.total;
     if (diffDias < 1) totalDia += v.total;
     if (diffDias < 7) totalSemana += v.total;
     if (hoje.getMonth() === data.getMonth()) totalMes += v.total;
 
-    // produtos
     v.itens.forEach(it => {
       porProduto[it.produto] = (porProduto[it.produto] || 0) + it.qtd * it.preco;
     });
 
-    // gráfico diário
     porDia[dataStr] = (porDia[dataStr] || 0) + v.total;
 
-    // tabela
     const itensTexto = v.itens.map(i => `${i.qtd}x ${i.produto}`).join(", ");
     const tr = document.createElement("tr");
-    tr.innerHTML = `<td>${dataStr}</td><td>${v.total.toFixed(2)}</td><td>${itensTexto}</td>`;
+    tr.innerHTML = `
+      <td>${dataStr}</td>
+      <td>${horaStr}</td>
+      <td>R$ ${v.total.toFixed(2)}</td>
+      <td>${itensTexto}</td>
+    `;
     tabela.appendChild(tr);
   });
 
