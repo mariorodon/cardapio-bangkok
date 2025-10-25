@@ -136,5 +136,34 @@ function confirmarRefrigerante() {
   fecharModal();
 }
 
+// ===== SISTEMA DE REGISTRO DE VENDAS =====
+function registrarVenda(total, itens) {
+  const vendas = JSON.parse(localStorage.getItem("vendas")) || [];
+  const agora = new Date();
+  vendas.push({
+    data: agora.toISOString(),
+    total: total,
+    itens: itens
+  });
+  localStorage.setItem("vendas", JSON.stringify(vendas));
+}
+
+const oldFinalizarPedido = finalizarPedido;
+finalizarPedido = function () {
+  if (carrinho.length === 0) return alert("Carrinho vazio!");
+  const nome = document.getElementById("nomeCliente").value.trim();
+  if (!nome) return alert("Informe seu nome!");
+
+  const retiradaEntrega = document.getElementById("retiradaEntrega").value;
+  const taxa = (retiradaEntrega === "Entrega") ? TAXA_ENTREGA : 0;
+  let total = carrinho.reduce((sum, i) => sum + i.preco * i.quantidade, 0) + taxa;
+
+  // salva a venda localmente
+  registrarVenda(total, carrinho.map(i => ({ produto: i.produto, qtd: i.quantidade, preco: i.preco })));
+
+  // chama o original
+  oldFinalizarPedido();
+};
+
 
 atualizarCarrinho();
