@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Painel Administrativo - Bangkok Lanches</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0; background: #0f1115; color: #fff;
+    }
+    .login-box, .painel {
+      max-width: 1000px; margin: 80px auto;
+      background: #1a1c23; border-radius: 12px;
+      box-shadow: 0 4px 25px rgba(0,0,0,0.4);
+      padding: 35px;
+    }
+    h1 { text-align: center; color: #f1b434; letter-spacing: 1px; }
+    input[type=password], button {
+      width: 100%; padding: 14px; border-radius: 8px;
+      border: none; margin-top: 10px; font-size: 1rem;
+    }
+    input[type=password] { background: #2a2d35; color: #fff; }
+    button {
+      background: #f1b434; color: #111; font-weight: bold;
+      cursor: pointer; transition: 0.3s;
+    }
+    button:hover { background: #ffca2c; }
+    .cards {
+      display: flex; gap: 20px; flex-wrap: wrap;
+      margin-top: 25px; justify-content: space-between;
+    }
+    .card {
+      flex: 1; min-width: 200px; background: #252832;
+      border-radius: 10px; padding: 20px; text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+    .card h3 { color: #f1b434; margin-bottom: 8px; }
+    canvas { margin-top: 40px; background: #1a1c23; border-radius: 10px; padding: 20px; }
+    table {
+      width: 100%; margin-top: 30px; border-collapse: collapse;
+      background: #252832; border-radius: 10px; overflow: hidden;
+    }
+    th, td {
+      padding: 12px; text-align: center;
+    }
+    th {
+      background: #333742; color: #f1b434; text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    tr:nth-child(even) { background: #2a2e38; }
+    tr:hover { background: #3a3e48; }
+    .logout {
+      float: right; color: #f1b434; cursor: pointer;
+      font-size: 0.9rem; margin-top: -30px;
+    }
+    .logout:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<div class="login-box" id="loginBox">
+  <h1>🔒 Acesso Restrito</h1>
+  <input type="password" id="senha" placeholder="Senha de administrador">
+  <button onclick="verificarSenha()">Entrar</button>
+</div>
+
+<div class="painel" id="painel" style="display:none;">
+  <h1>Painel Administrativo 🍔</h1>
+  <div class="logout" onclick="sair()">Sair</div>
+  <div class="cards">
+    <div class="card"><h3>Hoje</h3><p id="vendasDia">R$ 0,00</p></div>
+    <div class="card"><h3>Semana</h3><p id="vendasSemana">R$ 0,00</p></div>
+    <div class="card"><h3>Mês</h3><p id="vendasMes">R$ 0,00</p></div>
+    <div class="card"><h3>Total Geral</h3><p id="vendasTotal">R$ 0,00</p></div>
+  </div>
+
+  <canvas id="graficoVendas" height="120"></canvas>
+  <canvas id="graficoProdutos" height="120"></canvas>
+
+  <table>
+    <thead>
+      <tr><th>Data</th><th>Total (R$)</th><th>Itens</th></tr>
+    </thead>
+    <tbody id="tabelaVendas"></tbody>
+  </table>
+</div>
+
+<script>
+const SENHA = "bangkok123";
+
+function verificarSenha() {
+  const senha = document.getElementById("senha").value;
+  if (senha === SENHA) {
+    localStorage.setItem("logadoAnalytics", "1");
+    document.getElementById("loginBox").style.display = "none";
+    document.getElementById("painel").style.display = "block";
+    carregarVendas();
+  } else alert("Senha incorreta!");
+}
+
+function sair() {
+  localStorage.removeItem("logadoAnalytics");
+  location.reload();
+}
+
+if (localStorage.getItem("logadoAnalytics") === "1") {
+  document.getElementById("loginBox").style.display = "none";
+  document.getElementById("painel").style.display = "block";
+  carregarVendas();
+}
+
+function carregarVendas() {
+  const vendas = JSON.parse(localStorage.getItem("vendas")) || [];
+  const hoje = new Date();
+  let totalDia = 0, totalSemana = 0, totalMes = 0, totalGeral = 0;
+  const tabela = document.getElementById("tabelaVendas");
+  tabela.innerHTML = "";
+
+  const porDia = {};
+  const porProduto = {};
+
+  vendas.forEach(v => {
+    const data = new Date(v.data);
+    const diffDias = (hoje - data) / (1000 * 60 * 60 * 24);
+    const dataStr = data.toLocaleDateString("pt-BR");
+
+    // totais
+    totalGeral += v.total;
+    if (diffDias < 1) totalDia += v.total;
+    if (diffDias < 7) totalSemana += v.total;
+    if (hoje.getMonth() === data.getMonth()) totalMes += v.total;
+
+    // produtos
+    v.itens.forEach(it => {
+      porProduto[it.produto] = (porProduto[it.produto] || 0) + it.qtd * it.preco;
+    });
+
+    // gráfico diário
+    porDia[dataStr] = (porDia[dataStr] || 0) + v.total;
+
+    // tabela
+    const itensTexto = v.itens.map(i => `${i.qtd}x ${i.produto}`).join(", ");
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td>${dataStr}</td><td>${v.total.toFixed(2)}</td><td>${itensTexto}</td>`;
+    tabela.appendChild(tr);
+  });
+
+  document.getElementById("vendasDia").textContent = "R$ " + totalDia.toFixed(2);
+  document.getElementById("vendasSemana").textContent = "R$ " + totalSemana.toFixed(2);
+  document.getElementById("vendasMes").textContent = "R$ " + totalMes.toFixed(2);
+  document.getElementById("vendasTotal").textContent = "R$ " + totalGeral.toFixed(2);
+
+  gerarGraficos(porDia, porProduto);
+}
+
+function gerarGraficos(porDia, porProduto) {
+  const ctx1 = document.getElementById("graficoVendas").getContext("2d");
+  new Chart(ctx1, {
+    type: "bar",
+    data: {
+      labels: Object.keys(porDia),
+      datasets: [{
+        label: "Vendas por Dia (R$)",
+        data: Object.values(porDia),
+        backgroundColor: "#f1b434"
+      }]
+    },
+    options: { scales: { y: { beginAtZero: true } } }
+  });
+
+  const ctx2 = document.getElementById("graficoProdutos").getContext("2d");
+  new Chart(ctx2, {
+    type: "doughnut",
+    data: {
+      labels: Object.keys(porProduto),
+      datasets: [{
+        label: "Produtos Mais Vendidos",
+        data: Object.values(porProduto),
+        backgroundColor: [
+          "#f1b434", "#f27d42", "#4dc9f6", "#36a2eb", "#9966ff", "#ff6384", "#ff9f40"
+        ]
+      }]
+    }
+  });
+}
+</script>
+
+</body>
+</html>
