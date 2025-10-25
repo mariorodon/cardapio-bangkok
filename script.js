@@ -188,4 +188,5 @@ atualizarCarrinho = function() {
 atualizarContadorCarrinho();
 
 
+
 atualizarCarrinho();
