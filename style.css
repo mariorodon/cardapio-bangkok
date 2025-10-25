@@ -294,13 +294,13 @@ input:focus, select:focus {
   border-radius: 50%;
   width: 60px;
   height: 60px;
-  display: none; /* escondido até ter item */
+  display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.8rem;
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
   cursor: pointer;
-  z-index: 9999;
+  z-index: 999;
   transition: all 0.3s ease;
 }
 #botaoCarrinhoFlutuante:hover {
@@ -322,5 +322,6 @@ input:focus, select:focus {
   justify-content: center;
   font-weight: bold;
 }
-
-
+@media (min-width: 900px) {
+  #botaoCarrinhoFlutuante { display: none; } /* some em telas grandes */
+}
