@@ -322,13 +322,43 @@ input:focus, select:focus {
   justify-content: center;
   font-weight: bold;
 }
-/* Mostrar o botão em telas pequenas, esconder só em telas muito grandes */
-@media (min-width: 1100px) {
-  #botaoCarrinhoFlutuante { display: none; }
-}
-
+/* ==== BOTÃO FLUTUANTE DO CARRINHO ==== */
 #botaoCarrinhoFlutuante {
-  display: flex !important;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--primary);
+  color: white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: none; /* escondido até ter item */
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  cursor: pointer;
+  z-index: 9999;
+  transition: all 0.3s ease;
+}
+#botaoCarrinhoFlutuante:hover {
+  transform: scale(1.05);
+  background: var(--primary-dark);
+}
+#botaoCarrinhoFlutuante span {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
 }
 
 
