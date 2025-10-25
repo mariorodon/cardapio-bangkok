@@ -59,6 +59,13 @@
       text-align: right; font-size: 0.9rem; color: #ccc;
       margin-top: -10px; margin-bottom: 10px;
     }
+    .btn-whats {
+      margin-top: 20px; background: #25d366; color: #fff;
+      border: none; padding: 12px 20px; border-radius: 8px;
+      font-size: 1rem; font-weight: bold; cursor: pointer;
+      transition: 0.3s;
+    }
+    .btn-whats:hover { background: #1ebe5d; }
   </style>
 </head>
 <body>
@@ -81,6 +88,8 @@
     <div class="card"><h3>Total Geral</h3><p id="vendasTotal">R$ 0,00</p></div>
   </div>
 
+  <button class="btn-whats" onclick="enviarWhatsApp()">📤 Enviar Relatório por WhatsApp</button>
+
   <canvas id="graficoVendas" height="120"></canvas>
   <canvas id="graficoProdutos" height="120"></canvas>
 
@@ -94,6 +103,10 @@
 
 <script>
 const SENHA = "bangkok123";
+const telefone = "5548996899468"; // Luciano
+
+let totais = { dia: 0, semana: 0, mes: 0, geral: 0 };
+let produtosMaisVendidos = {};
 
 function verificarSenha() {
   const senha = document.getElementById("senha").value;
@@ -166,6 +179,9 @@ function carregarVendas() {
     tabela.appendChild(tr);
   });
 
+  totais = { dia: totalDia, semana: totalSemana, mes: totalMes, geral: totalGeral };
+  produtosMaisVendidos = porProduto;
+
   document.getElementById("vendasDia").textContent = "R$ " + totalDia.toFixed(2);
   document.getElementById("vendasSemana").textContent = "R$ " + totalSemana.toFixed(2);
   document.getElementById("vendasMes").textContent = "R$ " + totalMes.toFixed(2);
@@ -203,6 +219,25 @@ function gerarGraficos(porDia, porProduto) {
       }]
     }
   });
+}
+
+function enviarWhatsApp() {
+  const dataAgora = new Date().toLocaleString("pt-BR");
+  let msg = `📊 *Relatório Bangkok Lanches*\n`;
+  msg += `🕒 Gerado em: ${dataAgora}\n\n`;
+  msg += `💰 *Resumo de Vendas:*\n`;
+  msg += `- Hoje: R$ ${totais.dia.toFixed(2)}\n`;
+  msg += `- Semana: R$ ${totais.semana.toFixed(2)}\n`;
+  msg += `- Mês: R$ ${totais.mes.toFixed(2)}\n`;
+  msg += `- Total Geral: R$ ${totais.geral.toFixed(2)}\n\n`;
+
+  msg += `🍔 *Produtos Mais Vendidos:*\n`;
+  for (const [produto, valor] of Object.entries(produtosMaisVendidos)) {
+    msg += `- ${produto}: R$ ${valor.toFixed(2)}\n`;
+  }
+
+  const url = `https://wa.me/${telefone}?text=${encodeURIComponent(msg)}`;
+  window.open(url, "_blank");
 }
 </script>
 
