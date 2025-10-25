@@ -325,4 +325,3 @@ input:focus, select:focus {
 @media (min-width: 900px) {
   #botaoCarrinhoFlutuante { display: none; } /* some em telas grandes */
 }
-
