@@ -165,5 +165,27 @@ finalizarPedido = function () {
   oldFinalizarPedido();
 };
 
+// ==== BOTÃO FLUTUANTE DO CARRINHO ====
+function atualizarContadorCarrinho() {
+  const contador = document.getElementById("contadorCarrinho");
+  if (!contador) return;
+  const totalItens = carrinho.reduce((sum, i) => sum + i.quantidade, 0);
+  contador.textContent = totalItens;
+  document.getElementById("botaoCarrinhoFlutuante").style.display =
+    totalItens > 0 ? "flex" : "none";
+}
+
+function rolarCarrinho() {
+  document.querySelector(".carrinho").scrollIntoView({ behavior: "smooth" });
+}
+
+const oldAtualizarCarrinho2 = atualizarCarrinho;
+atualizarCarrinho = function() {
+  oldAtualizarCarrinho2();
+  atualizarContadorCarrinho();
+};
+
+atualizarContadorCarrinho();
+
 
 atualizarCarrinho();
