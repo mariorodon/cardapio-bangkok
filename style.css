@@ -322,6 +322,8 @@ input:focus, select:focus {
   justify-content: center;
   font-weight: bold;
 }
-@media (min-width: 900px) {
-  #botaoCarrinhoFlutuante { display: none; } /* some em telas grandes */
+/* Mostrar o botão em telas pequenas, esconder só em telas muito grandes */
+@media (min-width: 1100px) {
+  #botaoCarrinhoFlutuante { display: none; }
 }
+
