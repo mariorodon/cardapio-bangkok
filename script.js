@@ -219,7 +219,7 @@ window.addEventListener("DOMContentLoaded", function() {
     overlay.innerHTML = `
       <h1>⏰ Estamos fechados!</h1>
       <p>Nosso horário de funcionamento é:</p>
-      <p><strong>Quarta a Sábado, das 19h30 às 23h30</strong></p>
+      <p><strong>Quarta a Sábado, das 19h00 às 23h00</strong></p>
       <p>Volte nesse horário para fazer seu pedido 😋</p>
     `;
     document.body.appendChild(overlay);
