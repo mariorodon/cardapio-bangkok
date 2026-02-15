@@ -165,6 +165,7 @@ finalizarPedido = function () {
   oldFinalizarPedido();
 };
 
+/*
 // ==== BOTÃO FLUTUANTE DO CARRINHO ====
 function atualizarContadorCarrinho() {
   const contador = document.getElementById("contadorCarrinho");
@@ -225,6 +226,6 @@ window.addEventListener("DOMContentLoaded", function() {
     document.body.appendChild(overlay);
   }
 });
-
+*/
 
 atualizarCarrinho();
