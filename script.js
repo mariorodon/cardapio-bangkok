@@ -165,7 +165,6 @@ finalizarPedido = function () {
   oldFinalizarPedido();
 };
 
-/*
 // ==== BOTÃO FLUTUANTE DO CARRINHO ====
 function atualizarContadorCarrinho() {
   const contador = document.getElementById("contadorCarrinho");
@@ -187,45 +186,4 @@ atualizarCarrinho = function() {
 };
 
 atualizarContadorCarrinho();
-
-// === BLOQUEIO DE ACESSO FORA DO HORÁRIO DE FUNCIONAMENTO ===
-window.addEventListener("DOMContentLoaded", function() {
-  const agora = new Date();
-  const dia = agora.getDay(); // 0=Dom, 1=Seg, 2=Ter, 3=Qua, 4=Qui, 5=Sex, 6=Sáb
-  const hora = agora.getHours();
-  const minuto = agora.getMinutes();
-
-  // Dias e horário de funcionamento: quarta (3) a sábado (6), 19:30–23:30
-  const diaPermitido = dia >= 3 && dia <= 6;
-  const horarioPermitido =
-    (hora > 19 || (hora === 19 && minuto >= 30)) &&
-    (hora < 23 || (hora === 23 && minuto <= 30));
-
-  if (!(diaPermitido && horarioPermitido)) {
-    const overlay = document.createElement("div");
-    overlay.style.position = "fixed";
-    overlay.style.top = "0";
-    overlay.style.left = "0";
-    overlay.style.width = "100%";
-    overlay.style.height = "100%";
-    overlay.style.background = "rgba(0,0,0,0.95)";
-    overlay.style.color = "white";
-    overlay.style.display = "flex";
-    overlay.style.flexDirection = "column";
-    overlay.style.alignItems = "center";
-    overlay.style.justifyContent = "center";
-    overlay.style.zIndex = "9999";
-    overlay.style.textAlign = "center";
-    overlay.style.padding = "20px";
-    overlay.innerHTML = `
-      <h1>⏰ Estamos fechados!</h1>
-      <p>Nosso horário de funcionamento é:</p>
-      <p><strong>Quarta a Sábado, das 19h00 às 23h00</strong></p>
-      <p>Volte nesse horário para fazer seu pedido 😋</p>
-    `;
-    document.body.appendChild(overlay);
-  }
-});
-*/
-
 atualizarCarrinho();
