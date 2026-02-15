@@ -1,6 +1,6 @@
 :root {
-  --primary: #e6a519;
-  --primary-dark: #6e0101;
+  --primary: hwb(81 8% 25%);
+  --primary-dark: #0010f3;
   --secondary: #218838;
   --secondary-dark: #145c2b;
   --accent: #ffc107;
