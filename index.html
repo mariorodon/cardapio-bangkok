@@ -7,168 +7,32 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
-
-<!-- Botão flutuante do carrinho -->
-<div id="botaoCarrinhoFlutuante" onclick="rolarCarrinho()">
-  <i class="fas fa-shopping-cart"></i>
-  <span id="contadorCarrinho">0</span>
-</div>
-
-
 <body>
 
-<header>
-  <div class="header-content">
-    <div class="logo">🍔</div>
-    <h1>XIS DO BANGKOK</h1>
-    <p class="slogan">Sabor artesanal, qualidade de verdade 🍟</p>
-
-    <div class="info-box">
-      <p><i class="fas fa-concierge-bell"></i> Monte seu pedido e finalize no carrinho abaixo.</p>
-      <p><i class="fas fa-shopping-cart"></i> O carrinho das suas escolhas aparece no final da página.</p>
-      <p><i class="fas fa-truck"></i> <strong>Entrega:</strong> Morro dos Conventos – taxa fixa de <strong>R$ 2,00</strong>.</p>
-      <p><i class="fab fa-whatsapp"></i> <strong>Outros bairros:</strong> combinar valor da entrega via WhatsApp.</p>
-      <p><i class="fas fa-clock"></i> <strong>Horário de atendimento:</strong> 19:00h às 23:00h – De Quarta a Sábado</p>
-    </div>
+  <!-- Botão flutuante do carrinho -->
+  <div id="botaoCarrinhoFlutuante" onclick="rolarCarrinho()">
+    <i class="fas fa-shopping-cart"></i>
+    <span id="contadorCarrinho">0</span>
   </div>
-</header>
 
+  <header>
+    <div class="header-content">
+      <div class="logo">🍔</div>
+      <h1>XIS DO BANGKOK</h1>
+      <p class="slogan">Sabor artesanal, qualidade de verdade 🍟</p>
+
+      <div class="info-box">
+        <p><i class="fas fa-shopping-cart"></i> O carrinho das suas escolhas aparece no final da página.</p>
+        <p><i class="fas fa-truck"></i> <strong>Entrega:</strong> Morro dos Conventos – taxa fixa de <strong>R$ 2,00</strong>.</p>
+        <p><i class="fab fa-whatsapp"></i> <strong>Outros bairros:</strong> combinar valor da entrega via WhatsApp.</p>
+        <p><i class="fas fa-clock"></i> <strong>Horário de atendimento:</strong> 19:30h às 22:30h – De Quarta a Sábado</p>
+      </div>
+    </div>
+  </header>
 
   <div class="container">
-    <!-- Lista de Produtos -->
-    <div class="produtos">
+    <div class="produtos" id="listaProdutos"></div>
 
-      <div class="categoria"><i class="fas fa-hamburger"></i> Lanches</div>
-
-      <div class="produto">
-        <h3>X-Salada</h3>
-        <p class="descricao">Pão macio, carne de hambúrguer suculento, queijo, , ovo, milho, ervilha, alface, tomate e maionese especial.</p>
-        <p>R$ 21,00</p>
-        <button onclick="adicionarCarrinho('X-Salada', 21, this)"><i class="fas fa-plus"></i> Adicionar</button>
-      </div>
-
-      <div class="produto">
-        <h3>X-Bacon</h3>
-        <p class="descricao">Hambúrguer artesanal, queijo derretido, crocantes fatias de bacon e molho da casa.</p>
-        <p>R$ 25,00</p>
-        <button onclick="adicionarCarrinho('X-Bacon', 25, this)"><i class="fas fa-plus"></i> Adicionar</button>
-      </div>
-
-      <div class="produto">
-        <h3>X-Burguer I</h3>
-        <p class="descricao">Pão, Hambúrguer, Presunto, Queijo, Ovo, Maionese Caseira.</p>
-        <p>R$ 19,00</p>
-        <button onclick="adicionarCarrinho('X-Burguer I', 19, this)"><i class="fas fa-plus"></i> Adicionar</button>
-      </div>
-
-      <div class="produto">
-        <h3>X-Burguer II</h3>
-        <p class="descricao">2 Pão, Hambúrguer em Dobro, Presunto, Queijo, Ovo, Maionese Caseira.</p>
-        <p>R$ 24,00</p>
-        <button onclick="adicionarCarrinho('X-Burguer II', 24, this)"><i class="fas fa-plus"></i> Adicionar</button>
-      </div>
-
-      <div class="produto">
-        <h3>X-Frango</h3>
-        <p class="descricao">Pão, Frango, Presunto, Queijo, Ovo, Milho, Ervilha, Alface, Tomate, Maionese Caseira.</p>
-        <p>R$ 24,00</p>
-        <button onclick="adicionarCarrinho('X-Frango', 24, this)"><i class="fas fa-plus"></i> Adicionar</button>
-      </div>
-
-      <div class="produto">
-        <h3>X-Frango c/ Calabresa</h3>
-        <p class="descricao">Pão, Frango, Calabresa, Presunto, Queijo, Ovo, Milho, Ervilha, Alface, Tomate, Maionese Caseira.</p>
-        <p>R$ 26,00</p>
-        <button onclick="adicionarCarrinho('X-Frango c/ Calabresa', 26, this)"><i class="fas fa-plus"></i> Adicionar</button>
-      </div>
-
-      <div class="produto">
-        <h3>X-Calabresa</h3>
-        <p class="descricao">Pão, Hambúrguer, Presunto, Queijo, Ovo, Milho, Alface, Ervilha, Tomate, Maionese Caseira.</p>
-        <p>R$ 25,00</p>
-        <button onclick="adicionarCarrinho('X-Calabresa', 25, this)"><i class="fas fa-plus"></i> Adicionar</button>
-      </div>
-
-      <div class="produto">
-        <h3>X-Coração</h3>
-        <p class="descricao">Pão, Hambúrguer, Coração, Presunto, Queijo, Ovo, Milho, Ervilha, Alface, Tomate, Maionese Caseira.</p>
-        <p>R$ 26,00</p>
-        <button onclick="adicionarCarrinho('X-Coração', 26, this)"><i class="fas fa-plus"></i> Adicionar</button>
-      </div>
-
-      <div class="produto">
-        <h3>X-Coração c/ Bacon</h3>
-        <p class="descricao">Pão, Hambúrguer, Coração, Bacon, Presunto, Queijo, Ovo, Milho, Ervilha, Alface, Tomate, Maionese Caseira.</p>
-        <p>R$ 29,00</p>
-        <button onclick="adicionarCarrinho('X-Coração c/ Bacon', 29, this)"><i class="fas fa-plus"></i> Adicionar</button>
-      </div>
-
-      <div class="produto">
-        <h3>X-Coração c/ Frango</h3>
-        <p class="descricao">Pão, Hambúrguer, Coração, Frango, Queijo, Ovo, Milho, Ervilha, Alface, Tomate, Maionese Caseira.</p>
-        <p>R$ 29,00</p>
-        <button onclick="adicionarCarrinho('X-Coração c/ Frango', 29, this)"><i class="fas fa-plus"></i> Adicionar</button>
-      </div>
-
-      <div class="produto">
-        <h3>X-Acebolado</h3>
-        <p class="descricao">Pão, Hambúrguer, Presunto, Queijo, Ovo, Cebola-Caramelizada, Maionese Caseira..</p>
-        <p>R$ 23,00</p>
-        <button onclick="adicionarCarrinho('X-Acebolado', 23, this)"><i class="fas fa-plus"></i> Adicionar</button>
-      </div>
-
-      <div class="produto">
-        <h3>X-Tudo</h3>
-        <p class="descricao">Pão, Hambúrguer, Coração, Presunto, Bacon, Queijo, Ovo, Milho, Ervilha, Alface, Tomate, Maionese Caseira.</p>
-        <p>R$ 35,00</p>
-        <button onclick="adicionarCarrinho('X-Tudo', 35, this)"><i class="fas fa-plus"></i> Adicionar</button>
-      </div>
-
-      <div class="produto">
-        <h3>X-Sem Pão</h3>
-        <p class="descricao">Versão leve sem pão, com hambúrguer artesanal, queijo, salada fresca e molho da casa.</p>
-        <p>R$ 21,00</p>
-        <button onclick="adicionarCarrinho('X-Sem Pão', 21, this)"><i class="fas fa-plus"></i> Adicionar</button>
-      </div>
-  
-      <div class="categoria"><i class="fas fa-glass-cheers"></i> Bebidas</div>
-      <div class="produto">
-        <h3>Refrigerante 350ml</h3>
-        <p class="descricao">Lata 350ml</p>
-        <p>R$ 7,00</p>
-        <button onclick="adicionarCarrinho('Refrigerante 350ml', 7, this)"><i class="fas fa-plus"></i> Adicionar</button>
-      </div>
-      <div class="produto">
-        <h3>Água Mineral 500ml</h3>
-        <p class="descricao">Garrafa 500ml</p>
-        <p>R$ 5,00</p>
-        <button onclick="adicionarCarrinho('Água Mineral 500ml', 5, this)"><i class="fas fa-plus"></i> Adicionar</button>
-      </div>
-      <div class="produto">
-        <h3>Refrigerante 600ml</h3>
-        <p class="descricao">Refrigerante 600ml</p>
-        <p>R$ 10,00</p>
-        <button onclick="adicionarCarrinho('Refrigerante 600ml', 10, this)"><i class="fas fa-plus"></i> Adicionar</button>
-      </div>
-<div class="produto">
-  <h3>Refrigerante 2L</h3>
-  <p class="descricao">Escolha o sabor disponível</p>
-  <p>R$ 15,00</p>
-  <button onclick="abrirOpcoesRefrigerante(this)"><i class="fas fa-plus"></i> Adicionar</button>
-</div>
-
-
-      <div class="categoria"><i class="fas fa-drumstick-bite"></i> Porções</div>
-      <div class="produto">
-        <h3>Porção de Batata Frita 400g</h3>
-        <p class="descricao">Porção generosa</p>
-        <p>R$ 25,00</p>
-        <button onclick="adicionarCarrinho('Porção de Batata Frita', 25, this)"><i class="fas fa-plus"></i> Adicionar</button>
-      </div>
-
-    </div>
-
-    <!-- Carrinho -->
     <div class="carrinho">
       <h3><i class="fas fa-shopping-cart"></i> Seu Pedido</h3>
       <div id="listaCarrinho"></div>
@@ -184,6 +48,7 @@
         <option value="Entrega">🚚 Entrega (Taxa: R$ 2,00)</option>
         <option value="Retirada">🏪 Retirada no local</option>
       </select>
+
       <select id="pagamento">
         <option value="Dinheiro">💵 Dinheiro</option>
         <option value="Cartão">💳 Cartão (débito/crédito)</option>
@@ -209,24 +74,25 @@
     <p class="disclaimer">Telefone: (48) 99172-0692 | Rua Vereador Euclides Odorico do Canto, 741 - Morro dos Conventos</p>
   </div>
 
-<!-- Modal de seleção de sabor -->
-<div id="modalRefrigerante" class="modal">
-  <div class="modal-content">
-    <h3>Escolha o sabor do refrigerante 2L:</h3>
-    <div class="opcoes">
-      <label><input type="radio" name="sabor" value="Coca-Cola" data-preco="17"> Coca-Cola — R$ 17,00</label>
-      <label><input type="radio" name="sabor" value="Guaraná" data-preco="15"> Guaraná — R$ 15,00</label>
-      <label><input type="radio" name="sabor" value="Pepsi" data-preco="15"> Pepsi — R$ 15,00</label>
-    </div>
-    <div class="botoes-modal">
-      <button onclick="confirmarRefrigerante()">Confirmar</button>
-      <button onclick="fecharModal()">Cancelar</button>
+  <!-- Modal de seleção de sabor -->
+  <div id="modalRefrigerante" class="modal">
+    <div class="modal-content">
+      <h3>Escolha o sabor do refrigerante 2L:</h3>
+      <div class="opcoes">
+        <label><input type="radio" name="sabor" value="Coca-Cola" data-preco="17"> Coca-Cola — R$ 17,00</label>
+        <label><input type="radio" name="sabor" value="Guaraná" data-preco="15"> Guaraná — R$ 15,00</label>
+        <label><input type="radio" name="sabor" value="Pepsi" data-preco="15"> Pepsi — R$ 15,00</label>
+      </div>
+      <div class="botoes-modal">
+        <button onclick="confirmarRefrigerante()">Confirmar</button>
+        <button onclick="fecharModal()">Cancelar</button>
+      </div>
     </div>
   </div>
-</div>
 
+  <script src="produtos.js"></script>
   <script src="script.js"></script>
+
+  <div id="toast" class="toast"></div>
 </body>
 </html>
-
-
