@@ -484,7 +484,6 @@ select:focus {
     font-size: 2rem;
   }
 }
-
 @media (min-width: 900px) {
   #botaoCarrinhoFlutuante {
     display: none;
