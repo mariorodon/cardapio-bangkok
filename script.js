@@ -284,6 +284,7 @@ function renderizarProdutos() {
   });
 }
 
+
 // ===== BOTÃO FLUTUANTE =====
 function atualizarContadorCarrinho() {
   const contador = document.getElementById("contadorCarrinho");
